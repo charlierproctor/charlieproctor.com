@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('charlieproctor.com', [
-  'ui.router'
+angular.module('charlierproctor', [
+  'ui.router',
+  'charlierproctor.carousel'
 ]).
 config(['$stateProvider','$urlRouterProvider',
 	function($stateProvider,$urlRouterProvider) {
