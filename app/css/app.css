@@ -23,8 +23,8 @@ img.carousel {
 
 /* except those marked opaque */
 img.carousel.opaque {
-  opacity: 1;
-  filter: alpha(opacity=1); }
+  opacity: 0.5;
+  filter: alpha(opacity=0.5); }
 
 #splash {
   position: absolute;
