@@ -1,3 +1,7 @@
+carousel {
+  z-index: 0;
+}
+
 img.carousel {
 
   /* Set rules to fill background */
@@ -25,7 +29,12 @@ img.carousel {
 }
 
 /* except those marked opaque */
-  img.carousel.opaque {
-    opacity:1;
-    filter: alpha(opacity=1);
-  }
+img.carousel.opaque {
+  opacity:1;
+  filter: alpha(opacity=1);
+}
+
+#splash {
+  position: relative;
+  z-index: 1;
+}
