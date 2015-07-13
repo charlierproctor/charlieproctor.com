@@ -4,25 +4,22 @@ angular.module('charlierproctor.carousel',[])
 .directive('carousel', ['$interval','$animate',function($interval,$animate){
 
 	function link(scope, element, attrs) {
-		element.css("background","url(img/1.jpg) no-repeat center center fixed");
-		element.css("-webkit-background-size", "cover");
-		element.css("-moz-background-size", "cover");
-		element.css("-o-background-size", "cover");
-  		element.css("background-size", "cover");
 
-  		element.css("transition","background-image " + attrs["fadeDuration"] + "s ease-in-out")
+		for (var i = 0; i < scope.images.length; i++) {
+			element.append("<img class='carousel' src='" + scope.images[i] + "'>")
+		};
+
+		angular.element(element.children()[0]).addClass("opaque")
 
   		var i = 0;
   		$interval(function(){
-  			$animate.animate(element,{},
-  			{
-				"background":"url(" + scope.images[++i%scope.images.length] + ") no-repeat center center fixed"
-  			})
-  			// element.css("background","url(" + scope.images[++i%scope.images.length] + ") no-repeat center center fixed");
+  			angular.element(element.children()[i%scope.images.length]).removeClass("opaque")
+  			angular.element(element.children()[++i%scope.images.length]).addClass("opaque")
   		}, attrs['interval']*1000)
 	}
 
 	return {
+		restrict: 'E',
 		link: link
 	}
 }])
