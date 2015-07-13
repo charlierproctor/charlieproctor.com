@@ -23,15 +23,19 @@ img.carousel {
   -o-transition: opacity 2s ease-in-out;
   transition: opacity 2s ease-in-out;
 
-  /* all images are transparent */
+  /* all images are black and white */
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+
+  /* and transparent */
   opacity:0;
   filter: alpha(opacity=0);
 }
 
 /* except those marked opaque */
 img.carousel.opaque {
-  opacity:0.5;
-  filter: alpha(opacity=0.5);
+  opacity:1;
+  filter: alpha(opacity=1);
 }
 
 #splash {
