@@ -2,7 +2,8 @@
 
 angular.module('charlierproctor', [
   'ui.router',
-  'charlierproctor.splash'
+  'charlierproctor.splash',
+  'charlierproctor.carousel'
 ]).
 config(['$stateProvider','$urlRouterProvider',
 	function($stateProvider,$urlRouterProvider) {
