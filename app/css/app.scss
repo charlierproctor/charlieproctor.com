@@ -1,20 +1,4 @@
-/* CSS3 transitions with vendor prefixes */
-@mixin transition($type) {
-  -webkit-transition: $type;
-  -moz-transition: $type;
-  -ms-transition: $type;
-  -o-transition: $type;
-  transition: $type;
-}
-
-/* CSS3 filters with vendor prefixes */
-@mixin filter($type) {
-  -webkit-filter: $type;
-  -moz-filter: $type;
-  -ms-filter: $type;
-  -o-filter: $type;
-  filter: $type;
-}
+@import 'mixins';
 
 /* Carousel */
 $grayscale: 100%;
