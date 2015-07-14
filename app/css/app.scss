@@ -1,3 +1,26 @@
+/* CSS3 transitions with vendor prefixes */
+@mixin transition($type) {
+  -webkit-transition: $type;
+  -moz-transition: $type;
+  -ms-transition: $type;
+  -o-transition: $type;
+  transition: $type;
+}
+
+/* CSS3 filters with vendor prefixes */
+@mixin filter($type) {
+  -webkit-filter: $type;
+  -moz-filter: $type;
+  -ms-filter: $type;
+  -o-filter: $type;
+  filter: $type;
+}
+
+/* Carousel */
+$grayscale: 100%;
+$brightness: 40%;
+$transitionDuration: 3s;
+
 carousel {
   z-index: 0;
 }
@@ -18,14 +41,10 @@ img.carousel {
   left: 0;
 
   /* opacity transitions*/
-  -webkit-transition: opacity 3s linear;
-  -moz-transition: opacity 3s linear;
-  -o-transition: opacity 3s linear;
-  transition: opacity 3s linear;
+  @include transition(opacity $transitionDuration linear);
 
-  /* all images are black and white */
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
+  /* set grayscale, brightness */
+  @include filter(grayscale($grayscale) brightness($brightness));
 
   /* and transparent */
   opacity:0;
@@ -38,7 +57,9 @@ img.carousel.opaque {
   filter: alpha(opacity=1);
 }
 
-/* splash section */
+/* Content */
+$fontFamily: 'Open Sans', sans-serif;
+
 #content {
   position: absolute;
   width: 100%;
@@ -49,14 +70,15 @@ img.carousel.opaque {
     text-align: center;
     margin: 30vh;
     color: white;
-    font-family: 'Open Sans', sans-serif;
+    font-family: $fontFamily;
     font-weight: 700;
-    font-variant: small-caps;
+
     #name {
       font-size: 12vmin;
     }
     #caption {
       font-size: 5vmin;
+      font-variant: small-caps;
     }
   }
 
@@ -70,10 +92,7 @@ img.carousel.opaque {
     padding: 10px;
 
     /* transitions for hovering */
-    -webkit-transition: background-color 1s linear;
-    -moz-transition: background-color 1s linear;
-    -o-transition: background-color 1s linear;
-    transition: background-color 1s linear;
+    @include transition(background-color 1s linear);
   }
 
   /* alpha = 1 on hover */
