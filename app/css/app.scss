@@ -52,13 +52,13 @@ $white: white;
 $black: black;
 
 // Content
-$fontFamily: 'Open Sans', sans-serif;
 
 #content {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 1;
+  font-family: 'Open Sans', sans-serif;
 
   #menu {
     position: fixed;
@@ -67,7 +67,6 @@ $fontFamily: 'Open Sans', sans-serif;
     background-color: $black;
     text-align: left;
     padding: 0;
-    font-family: $fontFamily;
     font-weight: 700;
     font-size: 20px;
     cursor: pointer;
@@ -87,7 +86,6 @@ $fontFamily: 'Open Sans', sans-serif;
     text-align: center;
     margin: 30vh;
     color: $white;
-    font-family: $fontFamily;
     font-weight: 700;
 
     // name and caption
@@ -114,7 +112,6 @@ $fontFamily: 'Open Sans', sans-serif;
       background-color:rgba(255, 255, 255, 0);
       text-align: center;
       color: $blue;
-      font-family: $fontFamily;
 
       span {
         margin-top: 400px;
