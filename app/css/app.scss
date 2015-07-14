@@ -64,6 +64,9 @@ $black: black;
     position: fixed;
     cursor: pointer;
     text-align: center;
+    
+    @extend .noselect;
+
     img {
       @include transform-transition(0.5s ease-in-out);
     }
@@ -96,6 +99,9 @@ $black: black;
     margin: 30vh;
     color: $white;
     font-weight: 700;
+    cursor: default;
+
+    @extend .noselect;
 
     // name and caption
     #text {

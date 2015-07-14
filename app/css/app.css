@@ -1,3 +1,11 @@
+.noselect, #content #menu, #content #splash {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
 carousel {
   z-index: 0; }
 
@@ -71,7 +79,8 @@ img.carousel.opaque {
     text-align: center;
     margin: 30vh;
     color: white;
-    font-weight: 700; }
+    font-weight: 700;
+    cursor: default; }
     #content #splash #text #name {
       font-size: 12vmin;
       color: #ffcc00; }
