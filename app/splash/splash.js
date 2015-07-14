@@ -11,6 +11,8 @@ angular.module('charlierproctor.splash', ['ui.router'])
 	  })
 	}])
 
-.controller('SplashCtrl',['$scope',function($scope){
-
+.controller('SplashCtrl',['$scope','$state',function($scope,$state){
+	$scope.info = function(subj){
+		$state.go(subj)
+	}
 }])
