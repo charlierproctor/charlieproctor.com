@@ -88,7 +88,7 @@ $black: black;
         padding: 10px 10px 10px 10px;
         @include transition(background-color 0.3s linear)
       }
-      :hover {
+      li:hover {
         background-color: $white;
       }
     }
@@ -113,7 +113,7 @@ $black: black;
         font-size: 5vmin;
         font-variant: small-caps;
       }
-      :hover {
+      #name:hover, #caption:hover {
         @include transform(scale(1.02));
       }
     }
@@ -132,7 +132,7 @@ $black: black;
         cursor: pointer;
         @include transition(color 0.3s linear);
       }
-      :hover {
+      span:hover {
         color: $yellow;
       }
     }
@@ -152,12 +152,8 @@ $black: black;
       margin-top: 2%;
       margin-bottom: 2%;
       padding: 2%;
-      border-radius: 10px;
-      text-align: left;
       display: inline-block;
       vertical-align: top;
-      background-color:rgba(255, 255, 255, 0.75);  
-      @include transition(background-color 1s linear);
 
       h2 {
         margin-top: 2%;
@@ -167,16 +163,16 @@ $black: black;
       a {
         text-decoration: none;
         color: $blue;
+        font-weight: 600;
       }
       a:visited {
         color: $purple;
       }
     }
-    .container:hover {
-      background-color: rgba(255, 255, 255, 1);
-    }
     .container.half-width {
       width: 40%;
+      text-align: left;
+      font-size: 2vmin;
     }
     .container.left {
       margin-right: 2%;
@@ -186,6 +182,19 @@ $black: black;
     }
     .container.full-width {
       width: 96%;  
+      text-align: center;
+      font-size: 3vmin;
+    }
+    .container.backdrop {
+      border-radius: 10px;
+      background-color:rgba(255, 255, 255, 0.75);  
+      @include transition(background-color 1s linear);
+    }
+    .container.backdrop:hover {
+      background-color: rgba(255, 255, 255, 1);
+    }
+    .container.transparent {
+      color: $white;
     }
   }
 }
