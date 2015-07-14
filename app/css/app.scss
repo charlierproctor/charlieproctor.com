@@ -44,6 +44,7 @@ img.carousel.opaque {
 // Content
 $fontFamily: 'Open Sans', sans-serif;
 $color: white;
+$darkColor: yellow;
 
 #content {
   position: absolute;
@@ -58,28 +59,44 @@ $color: white;
     font-family: $fontFamily;
     font-weight: 700;
 
-    :hover {
-      @include transform(scale(1.02));
+    // name and caption
+    #text {
+      #name {
+        font-size: 12vmin;
+        @include transition(color 0.5s linear);
+      }
+      #caption {
+        font-size: 5vmin;
+        font-variant: small-caps;
+        @include transition(color 0.5s linear);
+      }
+      :hover {
+        @include transform(scale(1.02));
+        color: yellow;
+      }
     }
 
-    #name {
-      font-size: 12vmin;
-    }
-    #caption {
-      font-size: 5vmin;
-      font-variant: small-caps;
-    }
+    // the buttons
     #buttons {
       margin-top: 10vh;
       font-size: 3vmin;
       font-variant: small-caps;
       font-weight: 400;
-      a {
+      background-color:rgba(255, 255, 255, 0);
+      
+      span {
         margin-top: 400px;
         margin: 0 2vmin 0 2vmin;
         padding: 0.7vmin 1.5vmin 0.7vmin 1.5vmin;
         border: 0.3vmin solid $color;
         border-radius: 2vmin;
+        cursor: pointer;
+        @include transition(background-color 0.3s linear);
+        @include transition(color 0.3s linear);
+      }
+      :hover {
+        color: $darkColor;
+        background-color:rgba(255, 255, 255, 0.2);
       }
     }
   }
