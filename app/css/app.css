@@ -121,15 +121,25 @@ img.carousel.opaque {
     #content .page .container {
       text-align: left;
       display: inline-block;
+      vertical-align: top;
       border-radius: 10px;
       width: 40%;
       margin: 2%;
       padding: 2%;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.75);
       -webkit-transition: background-color 1s linear;
       -moz-transition: background-color 1s linear;
       -ms-transition: background-color 1s linear;
       -o-transition: background-color 1s linear;
       transition: background-color 1s linear; }
+      #content .page .container h2 {
+        margin-top: 2%;
+        margin-bottom: 2%;
+        text-align: center; }
+      #content .page .container a {
+        text-decoration: none;
+        color: #00aaee; }
+      #content .page .container a:visited {
+        color: #a300ff; }
     #content .page .container:hover {
       background-color: white; }
