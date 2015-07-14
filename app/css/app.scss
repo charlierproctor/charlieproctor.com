@@ -43,6 +43,7 @@ img.carousel.opaque {
 
 // Content
 $fontFamily: 'Open Sans', sans-serif;
+$color: white;
 
 #content {
   position: absolute;
@@ -53,20 +54,33 @@ $fontFamily: 'Open Sans', sans-serif;
   #splash {
     text-align: center;
     margin: 30vh;
-    color: white;
+    color: $color;
     font-family: $fontFamily;
     font-weight: 700;
 
     :hover {
       @include transform(scale(1.02));
     }
-    
+
     #name {
       font-size: 12vmin;
     }
     #caption {
       font-size: 5vmin;
       font-variant: small-caps;
+    }
+    #buttons {
+      margin-top: 10vh;
+      font-size: 3vmin;
+      font-variant: small-caps;
+      font-weight: 400;
+      a {
+        margin-top: 400px;
+        margin: 0 2vmin 0 2vmin;
+        padding: 0.7vmin 1.5vmin 0.7vmin 1.5vmin;
+        border: 0.3vmin solid $color;
+        border-radius: 2vmin;
+      }
     }
   }
 

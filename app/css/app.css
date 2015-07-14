@@ -48,6 +48,17 @@ img.carousel.opaque {
     #content #splash #caption {
       font-size: 5vmin;
       font-variant: small-caps; }
+    #content #splash #buttons {
+      margin-top: 10vh;
+      font-size: 3vmin;
+      font-variant: small-caps;
+      font-weight: 400; }
+      #content #splash #buttons a {
+        margin-top: 400px;
+        margin: 0 2vmin 0 2vmin;
+        padding: 0.7vmin 1.5vmin 0.7vmin 1.5vmin;
+        border: 0.3vmin solid white;
+        border-radius: 2vmin; }
   #content #container {
     background-color: rgba(255, 255, 255, 0.8);
     width: 60%;
