@@ -119,13 +119,13 @@ img.carousel.opaque {
       color: #ffcc00;
       font-variant: small-caps; }
     #content .page .container {
+      margin-top: 2%;
+      margin-bottom: 2%;
+      padding: 2%;
+      border-radius: 10px;
       text-align: left;
       display: inline-block;
       vertical-align: top;
-      border-radius: 10px;
-      width: 40%;
-      margin: 2%;
-      padding: 2%;
       background-color: rgba(255, 255, 255, 0.75);
       -webkit-transition: background-color 1s linear;
       -moz-transition: background-color 1s linear;
@@ -143,3 +143,11 @@ img.carousel.opaque {
         color: #a300ff; }
     #content .page .container:hover {
       background-color: white; }
+    #content .page .container.half-width {
+      width: 40%; }
+    #content .page .container.left {
+      margin-right: 2%; }
+    #content .page .container.right {
+      margin-left: 2%; }
+    #content .page .container.full-width {
+      width: 96%; }

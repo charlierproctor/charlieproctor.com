@@ -149,13 +149,13 @@ $black: black;
       font-variant: small-caps;
     }
     .container {
+      margin-top: 2%;
+      margin-bottom: 2%;
+      padding: 2%;
+      border-radius: 10px;
       text-align: left;
       display: inline-block;
       vertical-align: top;
-      border-radius: 10px;
-      width: 40%;
-      margin: 2%;
-      padding: 2%;
       background-color:rgba(255, 255, 255, 0.75);  
       @include transition(background-color 1s linear);
 
@@ -175,9 +175,17 @@ $black: black;
     .container:hover {
       background-color: rgba(255, 255, 255, 1);
     }
+    .container.half-width {
+      width: 40%;
+    }
+    .container.left {
+      margin-right: 2%;
+    }
+    .container.right {
+      margin-left: 2%;
+    }
+    .container.full-width {
+      width: 96%;  
+    }
   }
-
-  
-
-  
 }
