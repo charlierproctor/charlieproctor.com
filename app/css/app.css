@@ -37,6 +37,12 @@ img.carousel.opaque {
     color: white;
     font-family: "Open Sans", sans-serif;
     font-weight: 700; }
+    #content #splash :hover {
+      -webkit-transform: scale(1.02);
+      -moz-transform: scale(1.02);
+      -ms-transform: scale(1.02);
+      -o-transform: scale(1.02);
+      transform: scale(1.02); }
     #content #splash #name {
       font-size: 12vmin; }
     #content #splash #caption {

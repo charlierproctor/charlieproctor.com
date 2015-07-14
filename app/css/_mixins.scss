@@ -7,6 +7,15 @@
   transition: $type;
 }
 
+// CSS3 transforms with vendor prefixes
+@mixin transform($type) {
+  -webkit-transform: $type;
+  -moz-transform: $type;
+  -ms-transform: $type;
+  -o-transform: $type;
+  transform: $type;
+}
+
 // CSS3 filters with vendor prefixes
 @mixin filter($type) {
   -webkit-filter: $type;
