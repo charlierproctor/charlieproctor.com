@@ -111,17 +111,25 @@ img.carousel.opaque {
         transition: color 0.3s linear; }
       #content #splash #buttons :hover {
         color: #ffcc00; }
-  #content #pages {
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 60%;
-    height: 80%;
-    margin: 10vh auto;
-    border-radius: 10px;
-    padding: 10px;
-    -webkit-transition: background-color 1s linear;
-    -moz-transition: background-color 1s linear;
-    -ms-transition: background-color 1s linear;
-    -o-transition: background-color 1s linear;
-    transition: background-color 1s linear; }
-  #content #container:hover {
-    background-color: white; }
+  #content .page {
+    width: 70%;
+    margin: 5% 10% 0 20%;
+    text-align: center; }
+    #content .page h1 {
+      color: #ffcc00;
+      font-variant: small-caps; }
+    #content .page .container {
+      text-align: left;
+      display: inline-block;
+      border-radius: 10px;
+      width: 40%;
+      margin: 2%;
+      padding: 2%;
+      background-color: rgba(255, 255, 255, 0.8);
+      -webkit-transition: background-color 1s linear;
+      -moz-transition: background-color 1s linear;
+      -ms-transition: background-color 1s linear;
+      -o-transition: background-color 1s linear;
+      transition: background-color 1s linear; }
+    #content .page .container:hover {
+      background-color: white; }

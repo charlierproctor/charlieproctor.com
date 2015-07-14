@@ -138,21 +138,32 @@ $black: black;
     }
   }
 
-  // set up the container
-  #pages {
-    background-color:rgba(255, 255, 255, 0.8);
-    width: 60%;
-    height: 80%;
-    margin: 10vh auto;
-    border-radius: 10px;
-    padding: 10px;
+  // content pages
+  .page {
+    width: 70%;
+    margin: 5% 10% 0 20%;
+    text-align: center;
 
-    // transitions for hovering
-    @include transition(background-color 1s linear);
+    h1 {
+      color: $yellow;
+      font-variant: small-caps;
+    }
+    .container {
+      text-align: left;
+      display: inline-block;
+      border-radius: 10px;
+      width: 40%;
+      margin: 2%;
+      padding: 2%;
+      background-color:rgba(255, 255, 255, 0.8);  
+      @include transition(background-color 1s linear);
+    }
+    .container:hover {
+      background-color: rgba(255, 255, 255, 1);
+    }
   }
 
-  // alpha = 1 on hover
-  #container:hover {
-    background-color: rgba(255, 255, 255, 1);
-  }
+  
+
+  
 }
