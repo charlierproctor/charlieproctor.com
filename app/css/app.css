@@ -78,7 +78,7 @@ img.carousel.opaque {
       -ms-transform: scale(1.02);
       -o-transform: scale(1.02);
       transform: scale(1.02); }
-  #content .pages {
+  #content #pages {
     background-color: rgba(255, 255, 255, 0.8);
     width: 60%;
     height: 80%;
