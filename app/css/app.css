@@ -134,6 +134,11 @@ img.carousel.opaque {
         font-weight: 600; }
       #content .page .container a:visited {
         color: #a300ff; }
+      #content .page .container #charlie {
+        margin-left: 20%;
+        width: 60%;
+        height: auto;
+        border-radius: 60%; }
     #content .page .container.half-width {
       width: 40%;
       text-align: left;
