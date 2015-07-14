@@ -16,6 +16,15 @@
   transform: $type;
 }
 
+// CSS3 transitions for transforms with vendor prefixes
+@mixin transform-transition($type) {
+  -webkit-transition: -webkit-transform $type;
+  -moz-transition: -moz-transform $type;
+  -ms-transition: -ms-transform $type;
+  -o-transition: -o-transform $type;
+  transition: transform $type;
+}
+
 // CSS3 filters with vendor prefixes
 @mixin filter($type) {
   -webkit-filter: $type;
