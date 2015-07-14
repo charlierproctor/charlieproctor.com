@@ -1,4 +1,4 @@
-/* CSS3 transitions with vendor prefixes */
+// CSS3 transitions with vendor prefixes
 @mixin transition($type) {
   -webkit-transition: $type;
   -moz-transition: $type;
@@ -7,7 +7,7 @@
   transition: $type;
 }
 
-/* CSS3 filters with vendor prefixes */
+// CSS3 filters with vendor prefixes
 @mixin filter($type) {
   -webkit-filter: $type;
   -moz-filter: $type;

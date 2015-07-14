@@ -1,6 +1,6 @@
 @import 'mixins';
 
-/* Carousel */
+// Carousel
 $grayscale: 100%;
 $brightness: 40%;
 $transitionDuration: 3s;
@@ -11,37 +11,37 @@ carousel {
 
 img.carousel {
 
-  /* Set rules to fill background */
+  // Set rules to fill background
   min-height: 100%;
   min-width: 1024px;
   
-  /* Set up proportionate scaling */
+  // Set up proportionate scaling
   width: 100%;
   height: auto;
   
-  /* Set up positioning */
+  // Set up positioning
   position: fixed;
   top: 0;
   left: 0;
 
-  /* opacity transitions*/
+  // opacity transition
   @include transition(opacity $transitionDuration linear);
 
-  /* set grayscale, brightness */
+  // set grayscale, brightness
   @include filter(grayscale($grayscale) brightness($brightness));
 
-  /* and transparent */
+  // and transparent
   opacity:0;
   filter: alpha(opacity=0);
 }
 
-/* except those marked opaque */
+// except those marked opaque
 img.carousel.opaque {
   opacity:1;
   filter: alpha(opacity=1);
 }
 
-/* Content */
+// Content
 $fontFamily: 'Open Sans', sans-serif;
 
 #content {
@@ -66,7 +66,7 @@ $fontFamily: 'Open Sans', sans-serif;
     }
   }
 
-  /* set up the container */
+  // set up the container
   #container {
     background-color:rgba(255, 255, 255, 0.8);
     width: 60%;
@@ -75,11 +75,11 @@ $fontFamily: 'Open Sans', sans-serif;
     border-radius: 10px;
     padding: 10px;
 
-    /* transitions for hovering */
+    // transitions for hovering
     @include transition(background-color 1s linear);
   }
 
-  /* alpha = 1 on hover */
+  // alpha = 1 on hover
   #container:hover {
     background-color: rgba(255, 255, 255, 1);
   }
