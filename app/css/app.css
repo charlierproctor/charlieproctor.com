@@ -33,26 +33,26 @@ img.carousel.opaque {
   z-index: 1; }
   #content #menu {
     position: fixed;
-    color: yellow;
+    color: #00aaee;
     list-style: none;
-    background-color: darkgrey;
+    background-color: black;
     text-align: left;
     padding: 0;
     font-family: "Open Sans", sans-serif;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer; }
     #content #menu hr {
       margin: 0; }
     #content #menu li {
-      padding: 12px 12px 12px 12px;
+      padding: 10px 10px 10px 10px;
       -webkit-transition: background-color 0.3s linear;
       -moz-transition: background-color 0.3s linear;
       -ms-transition: background-color 0.3s linear;
       -o-transition: background-color 0.3s linear;
       transition: background-color 0.3s linear; }
     #content #menu :hover {
-      background-color: black; }
+      background-color: white; }
   #content #splash {
     text-align: center;
     margin: 30vh;
@@ -61,7 +61,7 @@ img.carousel.opaque {
     font-weight: 700; }
     #content #splash #text #name {
       font-size: 12vmin;
-      color: yellow; }
+      color: #ffcc00; }
     #content #splash #text #caption {
       font-size: 5vmin;
       font-variant: small-caps; }
@@ -78,28 +78,34 @@ img.carousel.opaque {
       font-weight: 600;
       background-color: rgba(255, 255, 255, 0);
       text-align: center;
-      color: white;
+      color: #00aaee;
       font-family: "Open Sans", sans-serif; }
       #content #splash #buttons span {
         margin-top: 400px;
         margin: 0 2vmin 0 2vmin;
         padding: 0.7vmin 1.5vmin 0.7vmin 1.5vmin;
-        border: 0.3vmin solid white;
+        border: 0.3vmin solid #00aaee;
         border-radius: 2vmin;
         cursor: pointer;
+        -webkit-transition: color 0.3s linear;
+        -moz-transition: color 0.3s linear;
+        -ms-transition: color 0.3s linear;
+        -o-transition: color 0.3s linear;
+        transition: color 0.3s linear;
         -webkit-transition: background-color 0.3s linear;
         -moz-transition: background-color 0.3s linear;
         -ms-transition: background-color 0.3s linear;
         -o-transition: background-color 0.3s linear;
         transition: background-color 0.3s linear;
-        -webkit-transition: color 0.3s linear;
-        -moz-transition: color 0.3s linear;
-        -ms-transition: color 0.3s linear;
-        -o-transition: color 0.3s linear;
-        transition: color 0.3s linear; }
+        -webkit-transition: border 0.3s linear;
+        -moz-transition: border 0.3s linear;
+        -ms-transition: border 0.3s linear;
+        -o-transition: border 0.3s linear;
+        transition: border 0.3s linear; }
       #content #splash #buttons :hover {
-        color: yellow;
-        background-color: rgba(255, 255, 255, 0.4); }
+        color: #ffcc00;
+        background-color: black;
+        border: 0.3vmin solid #ffcc00; }
   #content #pages {
     background-color: rgba(255, 255, 255, 0.8);
     width: 60%;

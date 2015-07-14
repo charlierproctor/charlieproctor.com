@@ -41,12 +41,18 @@ img.carousel.opaque {
   filter: alpha(opacity=1);
 }
 
+// Colors
+$blue: #00AAEE;
+$green: #0AFF00;
+$yellow: #FFCC00;
+$red: #FF3500;
+$purple: #A300FF;
+
+$white: white;
+$black: black;
+
 // Content
 $fontFamily: 'Open Sans', sans-serif;
-$color: white;
-$darkColor: yellow;
-$grey: darkgrey;
-$darkgrey: black;
 
 #content {
   position: absolute;
@@ -56,31 +62,31 @@ $darkgrey: black;
 
   #menu {
     position: fixed;
-    color: yellow;
+    color: $blue;
     list-style: none;
-    background-color: $grey;
+    background-color: $black;
     text-align: left;
     padding: 0;
     font-family: $fontFamily;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
     hr {
       margin: 0;
     }
     li {
-      padding: 12px 12px 12px 12px;
+      padding: 10px 10px 10px 10px;
       @include transition(background-color 0.3s linear)
     }
     :hover {
-      background-color: $darkgrey;
+      background-color: $white;
     }
   }
 
   #splash {
     text-align: center;
     margin: 30vh;
-    color: $color;
+    color: $white;
     font-family: $fontFamily;
     font-weight: 700;
 
@@ -88,7 +94,7 @@ $darkgrey: black;
     #text {
       #name {
         font-size: 12vmin;
-        color: $darkColor;
+        color: $yellow;
       }
       #caption {
         font-size: 5vmin;
@@ -107,22 +113,24 @@ $darkgrey: black;
       font-weight: 600;
       background-color:rgba(255, 255, 255, 0);
       text-align: center;
-      color: $color;
+      color: $blue;
       font-family: $fontFamily;
 
       span {
         margin-top: 400px;
         margin: 0 2vmin 0 2vmin;
         padding: 0.7vmin 1.5vmin 0.7vmin 1.5vmin;
-        border: 0.3vmin solid $color;
+        border: 0.3vmin solid $blue;
         border-radius: 2vmin;
         cursor: pointer;
-        @include transition(background-color 0.3s linear);
         @include transition(color 0.3s linear);
+        @include transition(background-color 0.3s linear);
+        @include transition(border 0.3s linear);
       }
       :hover {
-        color: $darkColor;
-        background-color:rgba(255, 255, 255, 0.4);
+        color: $yellow;
+        background-color:$black;
+        border: 0.3vmin solid $yellow;
       }
     }
   }
