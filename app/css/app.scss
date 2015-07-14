@@ -63,16 +63,14 @@ $darkColor: yellow;
     #text {
       #name {
         font-size: 12vmin;
-        @include transition(color 0.5s linear);
+        color: $darkColor;
       }
       #caption {
         font-size: 5vmin;
         font-variant: small-caps;
-        @include transition(color 0.5s linear);
       }
       :hover {
         @include transform(scale(1.02));
-        color: yellow;
       }
     }
 

@@ -39,26 +39,16 @@ img.carousel.opaque {
     font-weight: 700; }
     #content #splash #text #name {
       font-size: 12vmin;
-      -webkit-transition: color 0.5s linear;
-      -moz-transition: color 0.5s linear;
-      -ms-transition: color 0.5s linear;
-      -o-transition: color 0.5s linear;
-      transition: color 0.5s linear; }
+      color: yellow; }
     #content #splash #text #caption {
       font-size: 5vmin;
-      font-variant: small-caps;
-      -webkit-transition: color 0.5s linear;
-      -moz-transition: color 0.5s linear;
-      -ms-transition: color 0.5s linear;
-      -o-transition: color 0.5s linear;
-      transition: color 0.5s linear; }
+      font-variant: small-caps; }
     #content #splash #text :hover {
       -webkit-transform: scale(1.02);
       -moz-transform: scale(1.02);
       -ms-transform: scale(1.02);
       -o-transform: scale(1.02);
-      transform: scale(1.02);
-      color: yellow; }
+      transform: scale(1.02); }
     #content #splash #buttons {
       margin-top: 10vh;
       font-size: 3vmin;
