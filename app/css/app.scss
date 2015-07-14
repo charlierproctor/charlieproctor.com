@@ -52,6 +52,33 @@ $darkColor: yellow;
   height: 100%;
   z-index: 1;
 
+  // the buttons
+  #menu {
+    margin-top: 10vh;
+    font-size: 3vmin;
+    font-variant: small-caps;
+    font-weight: 600;
+    background-color:rgba(255, 255, 255, 0);
+    text-align: center;
+    color: $color;
+    font-family: $fontFamily;
+
+    span {
+      margin-top: 400px;
+      margin: 0 2vmin 0 2vmin;
+      padding: 0.7vmin 1.5vmin 0.7vmin 1.5vmin;
+      border: 0.3vmin solid $color;
+      border-radius: 2vmin;
+      cursor: pointer;
+      @include transition(background-color 0.3s linear);
+      @include transition(color 0.3s linear);
+    }
+    :hover {
+      color: $darkColor;
+      background-color:rgba(255, 255, 255, 0.4);
+    }
+  }
+
   #splash {
     text-align: center;
     margin: 30vh;
@@ -71,30 +98,6 @@ $darkColor: yellow;
       }
       :hover {
         @include transform(scale(1.02));
-      }
-    }
-
-    // the buttons
-    #buttons {
-      margin-top: 10vh;
-      font-size: 3vmin;
-      font-variant: small-caps;
-      font-weight: 600;
-      background-color:rgba(255, 255, 255, 0);
-      
-      span {
-        margin-top: 400px;
-        margin: 0 2vmin 0 2vmin;
-        padding: 0.7vmin 1.5vmin 0.7vmin 1.5vmin;
-        border: 0.3vmin solid $color;
-        border-radius: 2vmin;
-        cursor: pointer;
-        @include transition(background-color 0.3s linear);
-        @include transition(color 0.3s linear);
-      }
-      :hover {
-        color: $darkColor;
-        background-color:rgba(255, 255, 255, 0.4);
       }
     }
   }

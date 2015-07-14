@@ -31,6 +31,35 @@ img.carousel.opaque {
   width: 100%;
   height: 100%;
   z-index: 1; }
+  #content #menu {
+    margin-top: 10vh;
+    font-size: 3vmin;
+    font-variant: small-caps;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+    color: white;
+    font-family: "Open Sans", sans-serif; }
+    #content #menu span {
+      margin-top: 400px;
+      margin: 0 2vmin 0 2vmin;
+      padding: 0.7vmin 1.5vmin 0.7vmin 1.5vmin;
+      border: 0.3vmin solid white;
+      border-radius: 2vmin;
+      cursor: pointer;
+      -webkit-transition: background-color 0.3s linear;
+      -moz-transition: background-color 0.3s linear;
+      -ms-transition: background-color 0.3s linear;
+      -o-transition: background-color 0.3s linear;
+      transition: background-color 0.3s linear;
+      -webkit-transition: color 0.3s linear;
+      -moz-transition: color 0.3s linear;
+      -ms-transition: color 0.3s linear;
+      -o-transition: color 0.3s linear;
+      transition: color 0.3s linear; }
+    #content #menu :hover {
+      color: yellow;
+      background-color: rgba(255, 255, 255, 0.4); }
   #content #splash {
     text-align: center;
     margin: 30vh;
@@ -49,32 +78,6 @@ img.carousel.opaque {
       -ms-transform: scale(1.02);
       -o-transform: scale(1.02);
       transform: scale(1.02); }
-    #content #splash #buttons {
-      margin-top: 10vh;
-      font-size: 3vmin;
-      font-variant: small-caps;
-      font-weight: 600;
-      background-color: rgba(255, 255, 255, 0); }
-      #content #splash #buttons span {
-        margin-top: 400px;
-        margin: 0 2vmin 0 2vmin;
-        padding: 0.7vmin 1.5vmin 0.7vmin 1.5vmin;
-        border: 0.3vmin solid white;
-        border-radius: 2vmin;
-        cursor: pointer;
-        -webkit-transition: background-color 0.3s linear;
-        -moz-transition: background-color 0.3s linear;
-        -ms-transition: background-color 0.3s linear;
-        -o-transition: background-color 0.3s linear;
-        transition: background-color 0.3s linear;
-        -webkit-transition: color 0.3s linear;
-        -moz-transition: color 0.3s linear;
-        -ms-transition: color 0.3s linear;
-        -o-transition: color 0.3s linear;
-        transition: color 0.3s linear; }
-      #content #splash #buttons :hover {
-        color: yellow;
-        background-color: rgba(255, 255, 255, 0.4); }
   #content .pages {
     background-color: rgba(255, 255, 255, 0.8);
     width: 60%;
