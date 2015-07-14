@@ -8,8 +8,10 @@
 <body>
 
   <carousel interval='8'></carousel>
-
-  <div ui-view id="content"></div>
+  <div id="content">
+    <menu></menu>
+    <ui-view></ui-view>
+  </div>
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
