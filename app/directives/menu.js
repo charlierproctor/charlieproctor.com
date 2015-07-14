@@ -9,6 +9,9 @@ angular.module('charlierproctor.menu',[])
 			scope.info = function(subj){
 				$state.go('pages.' + subj)
 			}
+			scope.home = function(){
+				$state.go('splash')
+			}
 		}
 	}
 }])
