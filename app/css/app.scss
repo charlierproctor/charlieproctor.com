@@ -39,11 +39,26 @@ img.carousel.opaque {
 }
 
 /* splash section */
-#splash {
+#content {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 1;
+
+  #splash {
+    text-align: center;
+    margin: 30vh;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-variant: small-caps;
+    #name {
+      font-size: 12vmin;
+    }
+    #caption {
+      font-size: 5vmin;
+    }
+  }
 
   /* set up the container */
   #container {

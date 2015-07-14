@@ -30,14 +30,25 @@ img.carousel.opaque {
   filter: alpha(opacity=1); }
 
 /* splash section */
-#splash {
+#content {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 1;
   /* set up the container */
   /* alpha = 1 on hover */ }
-  #splash #container {
+  #content #splash {
+    text-align: center;
+    margin: 30vh;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-variant: small-caps; }
+    #content #splash #name {
+      font-size: 12vmin; }
+    #content #splash #caption {
+      font-size: 5vmin; }
+  #content #container {
     background-color: rgba(255, 255, 255, 0.8);
     width: 60%;
     height: 80%;
@@ -49,5 +60,5 @@ img.carousel.opaque {
     -moz-transition: background-color 1s linear;
     -o-transition: background-color 1s linear;
     transition: background-color 1s linear; }
-  #splash #container:hover {
+  #content #container:hover {
     background-color: white; }
