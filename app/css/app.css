@@ -34,25 +34,39 @@ img.carousel.opaque {
   font-family: 'Open Sans', sans-serif; }
   #content #menu {
     position: fixed;
-    color: #00aaee;
-    list-style: none;
-    background-color: black;
-    text-align: left;
-    padding: 0;
-    font-weight: 700;
-    font-size: 20px;
-    cursor: pointer; }
-    #content #menu hr {
-      margin: 0; }
-    #content #menu li {
-      padding: 10px 10px 10px 10px;
-      -webkit-transition: background-color 0.3s linear;
-      -moz-transition: background-color 0.3s linear;
-      -ms-transition: background-color 0.3s linear;
-      -o-transition: background-color 0.3s linear;
-      transition: background-color 0.3s linear; }
-    #content #menu :hover {
-      background-color: white; }
+    cursor: pointer;
+    text-align: center; }
+    #content #menu img {
+      -webkit-transition: -webkit-transform 0.5s ease-in-out;
+      -moz-transition: -moz-transform 0.5s ease-in-out;
+      -ms-transition: -ms-transform 0.5s ease-in-out;
+      -o-transition: -o-transform 0.5s ease-in-out;
+      transition: transform 0.5s ease-in-out; }
+    #content #menu img:hover {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg); }
+    #content #menu ul {
+      color: #00aaee;
+      list-style: none;
+      background-color: black;
+      text-align: left;
+      padding: 0;
+      font-weight: 700;
+      font-size: 20px; }
+      #content #menu ul hr {
+        margin: 0; }
+      #content #menu ul li {
+        padding: 10px 10px 10px 10px;
+        -webkit-transition: background-color 0.3s linear;
+        -moz-transition: background-color 0.3s linear;
+        -ms-transition: background-color 0.3s linear;
+        -o-transition: background-color 0.3s linear;
+        transition: background-color 0.3s linear; }
+      #content #menu ul :hover {
+        background-color: white; }
   #content #splash {
     text-align: center;
     margin: 30vh;
