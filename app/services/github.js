@@ -3,13 +3,6 @@
 angular.module('charlierproctor.github', [])
 .factory('GitHubService', ['$http',function($http){
 
-	var fetchLanguage = function(repo,cb){
-		$http.get('https://api.github.com/repos/'+repo+'/languages')
-		.success(function(data, status, headers, config) {
-			cb(data)
-	  	});
-	}
-
 	var getRepo = function(repo,cb){
 		$http.get('https://api.github.com/repos/'+repo)
 		.success(function(data, status, headers, config) {
