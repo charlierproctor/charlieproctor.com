@@ -43,9 +43,9 @@ angular.module('charlierproctor.pages', ['ui.router'])
 .controller('CodeCtrl',['$scope','GitHubService',function($scope,githubService){
 	githubService.getRepos(function(data){
 		$scope.repos = data;
-		githubService.getOcto(data.length,function(urls){
+		githubService.getOctos(data.length,function(urls){
 			for (var i = 0; i < urls.length; i++) {
-				$scope.repos[i].octo = "https://octodex.github.com/images" + urls[i] + ".png"
+				$scope.repos[i].octo = "https://octodex.github.com" + urls[i]
 			};
 		})
 	})
