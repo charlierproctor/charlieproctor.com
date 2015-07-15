@@ -70,4 +70,13 @@ angular.module('charlierproctor.pages', ['ui.router'])
 }])
 .controller('PhotographyZoomCtrl',['$scope','$state','$stateParams',function($scope,$state,$stateParams){
 	$scope.photo = $stateParams.photo
+	$scope.close = function(){
+		$state.go('pages.photography');
+	}
+	$scope.next = function(){
+
+	}
+	$scope.previous = function(){
+		
+	}
 }])
