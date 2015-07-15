@@ -181,6 +181,8 @@ img.carousel.opaque {
         font-weight: 600; }
       #content .page .container.transparent a:visited {
         color: #a300ff; }
+    #content .page .container.disclaimer {
+      font-size: 2vmin; }
   #content #code .container {
     vertical-align: top; }
   #content #about .container {
