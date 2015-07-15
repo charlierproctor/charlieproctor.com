@@ -159,6 +159,10 @@ img.carousel.opaque {
       font-size: 2vmin;
       margin-right: 2%;
       margin-left: 2%; }
+      #content .page .container.half-width img.photo {
+        margin: 0;
+        padding: 0;
+        width: 100%; }
     #content .page .container.full-width {
       width: 96%;
       text-align: center;

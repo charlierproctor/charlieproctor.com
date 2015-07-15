@@ -203,6 +203,11 @@ $black: black;
       font-size: 2vmin;
       margin-right: 2%;
       margin-left: 2%;
+      img.photo {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
     }
     .container.full-width {
       width: 96%;  
