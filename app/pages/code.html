@@ -1,6 +1,10 @@
 <div id="code" class="page">
 	<h1>Code</h1>
+	<div class="container full-width transparent">
+		Here's a sampling of my work, pulled from GitHub.
+	</div>
 	<div class="container half-width backdrop" ng-repeat="repo in repos">
-		{{ repo.name }}<br>{{ repo.description }}
+		<h3>{{ repo.name }}</h3>
+		<p class="tagline">{{ repo.description }}</p>
 	</div>
 </div>

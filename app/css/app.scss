@@ -153,7 +153,6 @@ $black: black;
       margin-bottom: 2%;
       padding: 2%;
       display: inline-block;
-      vertical-align: middle;
 
       h2 {
         margin-top: 2%;
@@ -214,5 +213,12 @@ $black: black;
         color: $purple;
       }
     }
+  }
+  // page-specific styling
+  #code .container {
+    vertical-align: top;
+  }
+  #about .container {
+    vertical-align: middle;
   }
 }

@@ -122,8 +122,7 @@ img.carousel.opaque {
       margin-top: 2%;
       margin-bottom: 2%;
       padding: 2%;
-      display: inline-block;
-      vertical-align: middle; }
+      display: inline-block; }
       #content .page .container h2 {
         margin-top: 2%;
         margin-bottom: 2%;
@@ -172,3 +171,7 @@ img.carousel.opaque {
         font-weight: 600; }
       #content .page .container.transparent a:visited {
         color: #a300ff; }
+  #content #code .container {
+    vertical-align: top; }
+  #content #about .container {
+    vertical-align: middle; }
