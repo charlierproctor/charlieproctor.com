@@ -44,6 +44,11 @@ img.carousel.opaque {
     position: fixed;
     cursor: pointer;
     text-align: center; }
+    #content #menu #social {
+      margin-top: 20vh; }
+      #content #menu #social .icon {
+        margin-top: 10px;
+        margin-bottom: 10px; }
     #content #menu img {
       -webkit-transition: -webkit-transform 0.5s ease-in-out;
       -moz-transition: -moz-transform 0.5s ease-in-out;

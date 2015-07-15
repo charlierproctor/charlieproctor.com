@@ -67,6 +67,14 @@ $black: black;
     
     @extend .noselect;
 
+    #social {
+      margin-top: 20vh;
+      .icon {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+
     img {
       @include transform-transition(0.5s ease-in-out);
     }
