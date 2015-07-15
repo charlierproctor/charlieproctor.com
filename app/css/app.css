@@ -191,3 +191,7 @@ img.carousel.opaque {
     vertical-align: top; }
   #content #about .container {
     vertical-align: middle; }
+  #content #zoom img {
+    margin: 0;
+    padding: 0;
+    width: 100%; }
