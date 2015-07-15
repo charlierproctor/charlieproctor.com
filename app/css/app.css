@@ -147,10 +147,8 @@ img.carousel.opaque {
     #content .page .container.half-width {
       width: 40%;
       text-align: left;
-      font-size: 2vmin; }
-    #content .page .container.left {
-      margin-right: 2%; }
-    #content .page .container.right {
+      font-size: 2vmin;
+      margin-right: 2%;
       margin-left: 2%; }
     #content .page .container.full-width {
       width: 96%;
