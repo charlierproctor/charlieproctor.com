@@ -40,8 +40,10 @@ angular.module('charlierproctor.pages', ['ui.router'])
 .controller('ExperienceCtrl',['$scope',function($scope){
 
 }])
-.controller('CodeCtrl',['$scope',function($scope){
-
+.controller('CodeCtrl',['$scope','GitHubService',function($scope,githubService){
+	githubService.getRepos(function(data){
+		$scope.repos = data
+	})
 }])
 .controller('PhotographyCtrl',['$scope',function($scope){
 
