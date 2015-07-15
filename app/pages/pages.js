@@ -68,3 +68,6 @@ angular.module('charlierproctor.pages', ['ui.router'])
 		})
 	}
 }])
+.controller('PhotographyZoomCtrl',['$scope','$state','$stateParams',function($scope,$state,$stateParams){
+	$scope.photo = $stateParams.photo
+}])
