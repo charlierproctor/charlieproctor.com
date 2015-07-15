@@ -14,11 +14,6 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	    templateUrl: 'pages/about.html',
 	    controller: 'AboutCtrl'
 	  })
-	  .state('pages.experience', {
-	  	url: '/experience',
-	    templateUrl: 'pages/experience.html',
-	    controller: 'ExperienceCtrl'
-	  })
 	  .state('pages.code', {
 	  	url: '/code',
 	    templateUrl: 'pages/code.html',
@@ -40,9 +35,6 @@ angular.module('charlierproctor.pages', ['ui.router'])
 
 }])
 .controller('AboutCtrl',['$scope',function($scope){
-
-}])
-.controller('ExperienceCtrl',['$scope',function($scope){
 
 }])
 .controller('CodeCtrl',['$scope','GitHubService',function($scope,githubService){
