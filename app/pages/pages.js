@@ -29,8 +29,8 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	    templateUrl: 'pages/photography.html',
 	    controller: 'PhotographyCtrl'
 	  })
-	  .state('pages.photography.zoom', {
-	  	url: '/:photo',
+	  .state('pages.zoom', {
+	  	url: '/photo/:photo',
 	  	templateUrl: 'pages/photography.zoom.html',
 	  	controller: 'PhotographyZoomCtrl'
 	  })
@@ -63,7 +63,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	})
 
 	$scope.zoom = function(photo){
-		$state.go('pages.photography.zoom',{
+		$state.go('pages.zoom',{
 			photo:photo
 		})
 	}
