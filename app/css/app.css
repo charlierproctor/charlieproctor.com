@@ -191,7 +191,34 @@ img.carousel.opaque {
     vertical-align: top; }
   #content #about .container {
     vertical-align: middle; }
-  #content #zoom img {
-    margin: 0;
-    padding: 0;
-    width: 100%; }
+  #content #zoom {
+    position: relative; }
+    #content #zoom img {
+      margin: 0;
+      padding: 0;
+      width: 100%; }
+    #content #zoom img.icon {
+      position: absolute;
+      z-index: 10;
+      margin: 5%;
+      opacity: 0.5;
+      cursor: pointer;
+      -webkit-transition: opacity 0.3s linear;
+      -moz-transition: opacity 0.3s linear;
+      -ms-transition: opacity 0.3s linear;
+      -o-transition: opacity 0.3s linear;
+      transition: opacity 0.3s linear; }
+    #content #zoom img.icon:hover {
+      opacity: 0.8; }
+    #content #zoom img.icon.close {
+      top: 0;
+      right: 0;
+      width: 50px; }
+    #content #zoom img.icon.previous {
+      top: 35%;
+      left: 0;
+      width: 40px; }
+    #content #zoom img.icon.next {
+      top: 35%;
+      right: 0;
+      width: 40px; }
