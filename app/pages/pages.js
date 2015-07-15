@@ -51,6 +51,9 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	})
 	
 }])
-.controller('PhotographyCtrl',['$scope',function($scope){
-
+.controller('PhotographyCtrl',['$scope','$http',function($scope,$http){
+	$http.get('/photo_list')
+	.success(function(data, status, headers, config) {
+		$scope.photos = data.images
+	})
 }])
