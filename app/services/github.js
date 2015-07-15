@@ -39,8 +39,28 @@ angular.module('charlierproctor.github', [])
 		})
 	}
 
+	var getOcto = function(num,cb){
+		$http.get('http://octodex.github.com')
+		.success(function(data, status, headers, config) {
+			var links = []
+			var a = angular.element(data).find('a')
+			for (var i = 0; i < a.length; i++) {
+				if (angular.element(a[i]).hasClass('preview-image')) {
+					links.push(angular.element(a[i]).attr('href'))
+				}
+			};
+
+			var cats = []
+			for (var i = 0; i < num; i++) {
+				cats.push(links[Math.floor(Math.random()*links.length)])
+			};
+			cb(cats)
+	  	});
+	}
+
   	return {
-  		getRepos: getRepos
+  		getRepos: getRepos,
+  		getOcto: getOcto
   	}
 }])
 
