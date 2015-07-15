@@ -6,7 +6,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/app'));
 
 app.get('*', function(req, res){
-	res.sendfile('./app/index.html');
+	res.sendFile('./app/index.html');
 })
 
 var server = app.listen(3000, function () {
