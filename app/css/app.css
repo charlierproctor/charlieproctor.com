@@ -133,6 +133,11 @@ img.carousel.opaque {
         height: auto; }
       #content .page .container img.circular {
         border-radius: 60%; }
+      #content .page .container img.octo {
+        width: 20%;
+        float: left;
+        margin: 0;
+        margin-right: 10%; }
       #content .page .container h3 {
         margin: 0;
         margin-top: 2%; }

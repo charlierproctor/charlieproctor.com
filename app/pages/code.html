@@ -4,8 +4,8 @@
 		Here's a sampling of my work, pulled from GitHub.
 	</div>
 	<div class="container half-width backdrop" ng-repeat="repo in repos">
+		<img class="octo" src="{{ repo.octo }}">
 		<h3>{{ repo.name }}</h3>
 		<p class="tagline">{{ repo.description }}</p>
-		<img src="{{ repo.octo }}">
 	</div>
 </div>
