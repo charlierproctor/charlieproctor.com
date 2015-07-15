@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/app'));
 
 // all the photos in the app/img/photos directory
 app.get('/photo_list', function(req, res){
-	fs.readdir('app/img/photos', function(err,files){
+	fs.readdir('app/img/photos/min', function(err,files){
 		res.send({"images":files})
 	})
 })
