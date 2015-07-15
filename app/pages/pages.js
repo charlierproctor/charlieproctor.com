@@ -25,9 +25,14 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	    controller: 'CodeCtrl'
 	  })
 	  .state('pages.photography', {
-	  	url: '/photography',
+	  	url: '/photo',
 	    templateUrl: 'pages/photography.html',
 	    controller: 'PhotographyCtrl'
+	  })
+	  .state('pages.photography.zoom', {
+	  	url: '/:photo',
+	  	templateUrl: 'pages/photography.zoom.html',
+	  	controller: 'PhotographyZoomCtrl'
 	  })
 	}])
 
@@ -51,9 +56,15 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	})
 	
 }])
-.controller('PhotographyCtrl',['$scope','$http',function($scope,$http){
+.controller('PhotographyCtrl',['$scope','$http','$state',function($scope,$http,$state){
 	$http.get('/photo_list')
 	.success(function(data, status, headers, config) {
 		$scope.photos = data.images
 	})
+
+	$scope.zoom = function(photo){
+		$state.go('pages.photography.zoom',{
+			photo:photo
+		})
+	}
 }])
