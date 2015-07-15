@@ -203,6 +203,8 @@ img.carousel.opaque {
     vertical-align: top; }
   #content #about .container {
     vertical-align: middle; }
+  #content #photography img {
+    cursor: pointer; }
   #content #zoom {
     position: relative; }
     #content #zoom img {
