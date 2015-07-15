@@ -18,7 +18,7 @@ angular.module('charlierproctor.github', [])
 	}
 
 	var fetchRepoList = function(cb){
-		$http.get('services/repos.json')
+		$http.get('data/repos.json')
 	       .success(function(data, status, headers, config){
 				cb(data)              
 	        });
