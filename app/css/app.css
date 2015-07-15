@@ -42,26 +42,33 @@ img.carousel.opaque {
   font-family: 'Open Sans', sans-serif; }
   #content #menu {
     position: fixed;
-    cursor: pointer;
     text-align: center; }
-    #content #menu #social {
-      margin-top: 10vh; }
-      #content #menu #social .icon {
-        margin-top: 10px;
-        margin-bottom: 10px; }
     #content #menu img {
+      cursor: pointer;
       -webkit-transition: -webkit-transform 0.5s ease-in-out;
       -moz-transition: -moz-transform 0.5s ease-in-out;
       -ms-transition: -ms-transform 0.5s ease-in-out;
       -o-transition: -o-transform 0.5s ease-in-out;
       transition: transform 0.5s ease-in-out; }
-    #content #menu img:hover {
+    #content #menu #social {
+      margin-top: 10vh; }
+      #content #menu #social .icon {
+        margin-top: 12px;
+        margin-bottom: 12px; }
+      #content #menu #social .icon:hover {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2); }
+    #content #menu #logo:hover {
       -webkit-transform: rotate(360deg);
       -moz-transform: rotate(360deg);
       -ms-transform: rotate(360deg);
       -o-transform: rotate(360deg);
       transform: rotate(360deg); }
     #content #menu ul {
+      cursor: pointer;
       color: #00aaee;
       list-style: none;
       background-color: rgba(0, 0, 0, 0.5);

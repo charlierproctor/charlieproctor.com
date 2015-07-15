@@ -62,26 +62,31 @@ $black: black;
 
   #menu {
     position: fixed;
-    cursor: pointer;
     text-align: center;
     
     @extend .noselect;
 
+    img {
+      cursor: pointer;
+      @include transform-transition(0.5s ease-in-out);
+    }
+
     #social {
       margin-top: 10vh;
       .icon {
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+      .icon:hover {
+        @include transform(scale(1.2));
       }
     }
 
-    img {
-      @include transform-transition(0.5s ease-in-out);
-    }
-    img:hover {
-      @include transform(rotate(360deg))
+    #logo:hover {
+      @include transform(rotate(360deg));
     }
     ul {
+      cursor: pointer;
       color: $blue;
       list-style: none;
       background-color: rgba(0,0,0,0.5);
