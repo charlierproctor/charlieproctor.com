@@ -144,6 +144,11 @@ img.carousel.opaque {
       #content .page .container a {
         text-decoration: none;
         color: black; }
+      #content .page .container p.homepage a {
+        color: #00aaee;
+        font-weight: 600; }
+      #content .page .container p.homepage a:visited {
+        color: #a300ff; }
       #content .page .container p {
         margin: 0; }
       #content .page .container p.tagline {

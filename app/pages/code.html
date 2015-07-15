@@ -1,11 +1,13 @@
 <div id="code" class="page">
 	<h1>Code</h1>
 	<div class="container full-width transparent">
-		Here's a sampling of my work, pulled from GitHub.
+		Here's a sampling of my work, pulled from GitHub. (All images are pulled from <a href="http://octodex.github.com">octodex.github.com</a>)
 	</div>
 	<div class="container half-width backdrop" ng-repeat="repo in repos">
-		<img class="octo" src="{{ repo.octo }}">
-		<h3>{{ repo.name }}</h3>
+		<a href="{{ repo.html_url }}"><img class="octo" src="{{ repo.octo }}"></a>
+		<h3><a href="{{repo.homepage || repo.html_url}}">{{ repo.name }}</a></h3>
 		<p class="tagline">{{ repo.description }}</p>
+		<p>Language: {{ repo.language }}</p>
+		<p class="homepage" ng-if="repo.homepage"><a href="{{repo.homepage}}">{{ repo.homepage }}</a></p>
 	</div>
 </div>
