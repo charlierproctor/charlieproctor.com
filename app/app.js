@@ -6,7 +6,8 @@ angular.module('charlierproctor', [
   'charlierproctor.splash',
   'charlierproctor.pages',
   'charlierproctor.menu',
-  'charlierproctor.github'
+  'charlierproctor.github',
+  'charlierproctor.photos'
 ]).
 config(['$stateProvider','$urlRouterProvider',
 	function($stateProvider,$urlRouterProvider) {

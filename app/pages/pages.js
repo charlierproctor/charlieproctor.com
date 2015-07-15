@@ -56,10 +56,9 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	})
 	
 }])
-.controller('PhotographyCtrl',['$scope','$http','$state',function($scope,$http,$state){
-	$http.get('/photo_list')
-	.success(function(data, status, headers, config) {
-		$scope.photos = data.images
+.controller('PhotographyCtrl',['$scope','PhotoService','$state',function($scope,photoService,$state){
+	photoService.getPhotoList(function(photos){
+		$scope.photos = photos
 	})
 
 	$scope.zoom = function(photo){
@@ -68,15 +67,24 @@ angular.module('charlierproctor.pages', ['ui.router'])
 		})
 	}
 }])
-.controller('PhotographyZoomCtrl',['$scope','$state','$stateParams',function($scope,$state,$stateParams){
-	$scope.photo = $stateParams.photo
-	$scope.close = function(){
-		$state.go('pages.photography');
-	}
-	$scope.next = function(){
-
-	}
-	$scope.previous = function(){
-		
-	}
+.controller('PhotographyZoomCtrl',['$scope','$state','$stateParams','PhotoService',
+	function($scope,$state,$stateParams,photoService){
+		$scope.photo = $stateParams.photo
+		$scope.close = function(){
+			$state.go('pages.photography');
+		}
+		$scope.next = function(){
+			photoService.getNextPhoto($scope.photo, function(next){
+				$state.go('pages.zoom',{
+					photo:next
+				})
+			})
+		}
+		$scope.previous = function(){
+			photoService.getPreviousPhoto($scope.photo, function(prev){
+				$state.go('pages.zoom',{
+					photo:prev
+				})
+			})
+		}
 }])
