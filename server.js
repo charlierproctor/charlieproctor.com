@@ -6,10 +6,10 @@ var fs = require('fs')
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/app'));
 
-// all the photos in the app/img/photos directory
-app.get('/photo_list', function(req, res){
-	fs.readdir('app/img/photos/min', function(err,files){
-		res.send({"images":files})
+// list all files in a directory: /fs_list?dir=[directory]
+app.get('/fs_list', function(req, res){
+	fs.readdir('app/'+req.query.dir, function(err,files){
+		res.send({"files":files})
 	})
 })
 
