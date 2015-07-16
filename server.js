@@ -14,7 +14,7 @@ app.get('/fs_list', function(req, res){
 })
 
 app.get('*', function(req, res){
-	res.sendFile(__dirname + 'app/index.html');
+	res.sendFile(__dirname + '/app/index.html');
 })
 
 var port = process.env.PORT || 3000;
