@@ -6,6 +6,7 @@ angular.module('charlierproctor', [
   'charlierproctor.splash',
   'charlierproctor.pages',
   'charlierproctor.menu',
+  'charlierproctor.zoom',
   'charlierproctor.github',
   'charlierproctor.photos'
 ]).
