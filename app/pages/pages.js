@@ -27,7 +27,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	  .state('pages.zoom', {
 	  	url: '/photo/zoom?img',
 	  	templateUrl: 'pages/photography.zoom.html',
-	  	reloadOnSearch: 'false',
+	  	reloadOnSearch: false,
 	  	controller: 'PhotographyZoomCtrl'
 	  })
 	}])
