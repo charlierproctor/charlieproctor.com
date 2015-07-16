@@ -49,7 +49,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	
 }])
 .controller('PhotographyCtrl',['$scope','PhotoService','$state',function($scope,photoService,$state){
-	photoService.getPhotoList(function(photos){
+	photoService.getImgList('/photos/min',function(photos){
 		$scope.photos = photos
 	})
 
