@@ -242,3 +242,13 @@ img.carousel.opaque {
       bottom: 0;
       right: 0;
       width: 50px; }
+    #content #zoom .data {
+      position: absolute;
+      color: white;
+      z-index: 10;
+      margin: 5%;
+      bottom: 0;
+      right: 100px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      padding: 10px; }

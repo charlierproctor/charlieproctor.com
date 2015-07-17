@@ -94,6 +94,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 .controller('PhotographyZoomCtrl',['$scope','$state','$stateParams','$location','PhotoService','KeydownService',
 	function($scope,$state,$stateParams,$location,photoService,keydownService){
 		$scope.photo = $stateParams.img
+		$scope.showData = false
 		$scope.close = function(){
 			$state.go('pages.photography');
 		}
@@ -119,5 +120,13 @@ angular.module('charlierproctor.pages', ['ui.router'])
 		keydownService.registerKeydown('pages.zoom',39,function(){
 			$scope.next()
 		})
+
+		$scope.calc = function(num){
+			if (num && num.numerator && num.denominator) {
+				return num.numerator/num.denominator;
+			} else {
+				return 0
+			}
+		}
 
 }])
