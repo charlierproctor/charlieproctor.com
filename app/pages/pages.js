@@ -121,6 +121,11 @@ angular.module('charlierproctor.pages', ['ui.router'])
 			$scope.next()
 		})
 
+		keydownService.registerKeydown('pages.zoom',73,function(){
+			$scope.showData = !$scope.showData
+			$scope.$apply()
+		})
+
 		$scope.calc = function(num){
 			if (num && num.numerator && num.denominator) {
 				return num.numerator/num.denominator;
