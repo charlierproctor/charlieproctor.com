@@ -34,6 +34,18 @@ angular.module('charlierproctor.pages', ['ui.router'])
 
 .controller('PagesCtrl',['$scope','$state','$window','KeydownService',function($scope,$state,$window,keydownService){
 	
+	// escape to splash page
+	keydownService.registerKeydown('pages.about',27,function(){
+		$state.go('splash')
+	})
+	keydownService.registerKeydown('pages.code',27,function(){
+		$state.go('splash')
+	})
+	keydownService.registerKeydown('pages.photography',27,function(){
+		$state.go('splash')
+	})
+
+	// arrow navigation between states
 	keydownService.registerKeydown('pages.about',37,function(){
 		$state.go('pages.photography')
 	})
