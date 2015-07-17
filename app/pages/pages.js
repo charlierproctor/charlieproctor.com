@@ -32,30 +32,27 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	  })
 	}])
 
-.controller('PagesCtrl',['$scope','$state','$window',function($scope,$state,$window){
-	$window.onkeydown = function(event){
-			if (event.keyCode == 27){
-				$state.go('splash')
-			} else if ($state.is('pages.about')){
-				if (event.keyCode == 37){
-					$state.go('pages.photography')
-				} else if (event.keyCode == 39) {
-					$state.go('pages.code')
-				}
-			} else if ($state.is('pages.code')){
-				if (event.keyCode == 37){
-					$state.go('pages.about')
-				} else if (event.keyCode == 39) {
-					$state.go('pages.photography')
-				}
-			} else if ($state.is('pages.photography')){
-				if (event.keyCode == 37){
-					$state.go('pages.code')
-				} else if (event.keyCode == 39) {
-					$state.go('pages.about')
-				}
-			}
-		}
+.controller('PagesCtrl',['$scope','$state','$window','KeydownService',function($scope,$state,$window,keydownService){
+	
+	keydownService.registerKeydown('pages.about',37,function(){
+		$state.go('pages.photography')
+	})
+	keydownService.registerKeydown('pages.about',39,function(){
+		$state.go('pages.code')
+	})
+	keydownService.registerKeydown('pages.code',37,function(){
+		$state.go('pages.about')
+	})
+	keydownService.registerKeydown('pages.code',39,function(){
+		$state.go('pages.photography')
+	})
+	keydownService.registerKeydown('pages.photography',37,function(){
+		$state.go('pages.code')
+	})
+	keydownService.registerKeydown('pages.photography',39,function(){
+		$state.go('pages.about')
+	})
+	
 }])
 .controller('AboutCtrl',['$scope',function($scope){
 
