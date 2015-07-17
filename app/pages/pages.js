@@ -52,7 +52,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	keydownService.registerKeydown('pages.photography',39,function(){
 		$state.go('pages.about')
 	})
-	
+
 }])
 .controller('AboutCtrl',['$scope',function($scope){
 
@@ -79,8 +79,8 @@ angular.module('charlierproctor.pages', ['ui.router'])
 		})
 	}
 }])
-.controller('PhotographyZoomCtrl',['$scope','$state','$stateParams','$location','PhotoService','$window',
-	function($scope,$state,$stateParams,$location,photoService,$window){
+.controller('PhotographyZoomCtrl',['$scope','$state','$stateParams','$location','PhotoService','KeydownService',
+	function($scope,$state,$stateParams,$location,photoService,keydownService){
 		$scope.photo = $stateParams.img
 		$scope.close = function(){
 			$state.go('pages.photography');
@@ -97,4 +97,14 @@ angular.module('charlierproctor.pages', ['ui.router'])
 				$location.search({img:prev})
 			})
 		}
+
+		keydownService.registerKeydown('pages.zoom',27,function(){
+			$scope.close()
+		})
+		keydownService.registerKeydown('pages.zoom',37,function(){
+			$scope.next()
+		})
+		keydownService.registerKeydown('pages.zoom',39,function(){
+			$scope.previous()
+		})
 }])
