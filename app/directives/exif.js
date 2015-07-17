@@ -6,7 +6,7 @@ angular.module('charlierproctor.exif',[])
 	function link(scope, element, attrs) {
 		element.on('load',function(){
 			EXIF.getData(element[0], function() {
-		    	scope.cb(EXIF.getAllTags(this))
+		    	scope.exif(EXIF.getAllTags(this))
 		    });
 		})
 	}
@@ -15,7 +15,7 @@ angular.module('charlierproctor.exif',[])
 	   	restrict: 'A',
 		link: link,
 		scope: {
-			cb: '='
+			exif: '='
 		}
 	}
 })
