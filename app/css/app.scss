@@ -36,9 +36,13 @@ img.carousel {
 }
 
 // except those marked opaque
-img.carousel.opaque {
+img.opaque {
   opacity:1;
   filter: alpha(opacity=1);
+}
+img.transparent {
+  opacity:0;
+  filter: alpha(opacity=0);
 }
 
 // Colors
@@ -267,6 +271,18 @@ $black: black;
       margin: 0;
       padding: 0;
       width: 100%;
+    }
+    img.photo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      @extend img.transparent;
+      @include transition(opacity 2s ease-in-out);
+    }
+    img.photo.opaque {
+      @extend img.opaque;
     }
     img.icon {
       position: absolute;
