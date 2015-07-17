@@ -8,7 +8,8 @@ angular.module('charlierproctor', [
   'charlierproctor.menu',
   'charlierproctor.github',
   'charlierproctor.photos',
-  'charlierproctor.keydown'
+  'charlierproctor.keydown',
+  'charlierproctor.exif'
 ]).
 config(['$stateProvider','$urlRouterProvider',
 	function($stateProvider,$urlRouterProvider) {

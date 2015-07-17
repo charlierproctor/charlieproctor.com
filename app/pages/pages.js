@@ -119,4 +119,8 @@ angular.module('charlierproctor.pages', ['ui.router'])
 		keydownService.registerKeydown('pages.zoom',39,function(){
 			$scope.next()
 		})
+
+		$scope.imagedata = function(data){
+			console.log(data)
+		}
 }])
