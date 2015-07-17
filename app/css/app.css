@@ -238,3 +238,7 @@ img.carousel.opaque {
       top: 35%;
       right: 0;
       width: 40px; }
+    #content #zoom img.icon.info {
+      bottom: 0;
+      right: 0;
+      width: 50px; }
