@@ -128,5 +128,19 @@ angular.module('charlierproctor.pages', ['ui.router'])
 				return 0
 			}
 		}
+		$scope.shutter = function(ss){
+			if (ss){
+				if (ss.numerator / ss.denominator >= 0.3){
+					var ra = ss.numerator / ss.denominator
+					var fl = Math.floor(ra)
+					var re = Math.round(10*(ra - fl))
+					return fl + "''" + re
+				} else {
+					return ss.numerator + "/" + ss.denominator
+				}
+			} else {
+				return 0
+			}
+		}
 
 }])
