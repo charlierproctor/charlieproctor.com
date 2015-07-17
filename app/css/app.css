@@ -30,13 +30,9 @@ img.carousel {
   opacity: 0;
   filter: alpha(opacity=0); }
 
-img.opaque, #content #zoom img.photo.opaque {
+img.carousel.opaque {
   opacity: 1;
   filter: alpha(opacity=1); }
-
-img.transparent, #content #zoom img.photo {
-  opacity: 0;
-  filter: alpha(opacity=0); }
 
 #content {
   position: absolute;
@@ -215,17 +211,6 @@ img.transparent, #content #zoom img.photo {
       margin: 0;
       padding: 0;
       width: 100%; }
-    #content #zoom img.photo {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-      -webkit-transition: opacity 2s ease-in-out;
-      -moz-transition: opacity 2s ease-in-out;
-      -ms-transition: opacity 2s ease-in-out;
-      -o-transition: opacity 2s ease-in-out;
-      transition: opacity 2s ease-in-out; }
     #content #zoom img.icon {
       position: absolute;
       z-index: 10;
