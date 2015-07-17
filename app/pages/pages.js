@@ -120,7 +120,4 @@ angular.module('charlierproctor.pages', ['ui.router'])
 			$scope.next()
 		})
 
-		$scope.imagedata = function(data){
-			console.log(data)
-		}
 }])
