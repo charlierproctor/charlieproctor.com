@@ -262,7 +262,9 @@ $black: black;
   }
   #zoom {
     position: relative;
-
+    .container {
+      margin: 0;
+    }
     img {
       margin: 0;
       padding: 0;

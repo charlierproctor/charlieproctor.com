@@ -207,6 +207,8 @@ img.carousel.opaque {
     cursor: pointer; }
   #content #zoom {
     position: relative; }
+    #content #zoom .container {
+      margin: 0; }
     #content #zoom img {
       margin: 0;
       padding: 0;
