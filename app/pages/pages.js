@@ -32,8 +32,30 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	  })
 	}])
 
-.controller('PagesCtrl',['$scope',function($scope){
-
+.controller('PagesCtrl',['$scope','$state','$window',function($scope,$state,$window){
+	$window.onkeydown = function(event){
+			if (event.keyCode == 27){
+				$state.go('splash')
+			} else if ($state.is('pages.about')){
+				if (event.keyCode == 37){
+					$state.go('pages.photography')
+				} else if (event.keyCode == 39) {
+					$state.go('pages.code')
+				}
+			} else if ($state.is('pages.code')){
+				if (event.keyCode == 37){
+					$state.go('pages.about')
+				} else if (event.keyCode == 39) {
+					$state.go('pages.photography')
+				}
+			} else if ($state.is('pages.photography')){
+				if (event.keyCode == 37){
+					$state.go('pages.code')
+				} else if (event.keyCode == 39) {
+					$state.go('pages.about')
+				}
+			}
+		}
 }])
 .controller('AboutCtrl',['$scope',function($scope){
 
@@ -60,8 +82,8 @@ angular.module('charlierproctor.pages', ['ui.router'])
 		})
 	}
 }])
-.controller('PhotographyZoomCtrl',['$scope','$state','$stateParams','$location','PhotoService',
-	function($scope,$state,$stateParams,$location,photoService){
+.controller('PhotographyZoomCtrl',['$scope','$state','$stateParams','$location','PhotoService','$window',
+	function($scope,$state,$stateParams,$location,photoService,$window){
 		$scope.photo = $stateParams.img
 		$scope.close = function(){
 			$state.go('pages.photography');
