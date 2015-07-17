@@ -5,15 +5,11 @@ angular.module('charlierproctor.exif',[])
 
 	function link(scope, element, attrs) {
 		element.bind('load',function(){
-			scope.$watch(function(){
-				return attrs['src']
-			},function(){
 				element[0].exifdata = 0		// exif-js wants clean images
 				EXIF.getData(element[0], function() {
 			    	scope.exif = EXIF.getAllTags(this)
 			    	scope.$apply()
 			    });
-			})
 		})
 	}
 
