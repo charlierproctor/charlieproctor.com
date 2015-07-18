@@ -3,9 +3,9 @@
 angular.module('charlierproctor.photos', [])
 .factory('PhotoService', ['$http',function($http){
 	var getImgList = function(imgDir,cb){
-		$http.get('/fs_list?dir=/img'+imgDir)
+		$http.get('/fs_list?dir=img'+imgDir)
 		.success(function(data, status, headers, config) {
-			cb(data.files)
+			cb(data)
 		})
 	}
 	var getNextPhoto = function(current,cb){

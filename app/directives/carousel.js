@@ -4,7 +4,8 @@ angular.module('charlierproctor.carousel',['charlierproctor.photos'])
 .directive('carousel', ['$interval','PhotoService',function($interval,photoService){
 
 	function link(scope, element, attrs) {
-		photoService.getImgList('/carousel',function(images){
+		photoService.getImgList('/carousel',function(data){
+			var images = data.files
 			for (var i = 0; i < images.length; i++) {
 				element.append("<img class='carousel' src='img/carousel/" + images[i] + "'>")
 			};
