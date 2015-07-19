@@ -10,6 +10,8 @@ angular.module('charlierproctor.menu',[])
 				if (subj == 'photography'){
 					$state.go('pages.' + subj, {
 						dir: ''
+					}, { 
+						reload: true
 					})	
 				} else {
 					$state.go('pages.' + subj)
