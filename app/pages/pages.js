@@ -55,12 +55,6 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	keydownService.registerKeydown('pages.code',39,function(){
 		$state.go('pages.photography')
 	})
-	keydownService.registerKeydown('pages.photography',37,function(){
-		$state.go('pages.code')
-	})
-	keydownService.registerKeydown('pages.photography',39,function(){
-		$state.go('pages.about')
-	})
 
 }])
 .controller('AboutCtrl',['$scope',function($scope){
@@ -133,6 +127,16 @@ angular.module('charlierproctor.pages', ['ui.router'])
 
 	keydownService.registerKeydown('pages.photography',27,function(){
 		$scope.close()
+	})
+	keydownService.registerKeydown('pages.photography',37,function(){
+		if (!$scope.isAlbum){
+			$state.go('pages.code')
+		}
+	})
+	keydownService.registerKeydown('pages.photography',39,function(){
+		if (!$scope.isAlbum){
+			$state.go('pages.about')
+		}
 	})
 
 }])
