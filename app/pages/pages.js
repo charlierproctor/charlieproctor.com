@@ -22,6 +22,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	  .state('pages.photography', {
 	  	url: '/photo?dir',
 	    templateUrl: 'pages/photography.html',
+	  	reloadOnSearch: false,
 	    controller: 'PhotographyCtrl'
 	  })
 	  .state('pages.zoom', {
@@ -82,6 +83,10 @@ angular.module('charlierproctor.pages', ['ui.router'])
 		$scope.process(hash)
 	})
 
+	photoService.getFsList('img/photos',function(hash){
+		$scope.root = hash
+	})
+
 	$scope.process = function(dir){
 		$scope.current = dir
 		$scope.directories = dir.directories.filter(function(d){
@@ -124,17 +129,36 @@ angular.module('charlierproctor.pages', ['ui.router'])
 			$state.go('splash')
 		}
 	}
+	$scope.move = function(direction){
+		var curIndex;
+		$scope.root.directories.forEach(function(d,i){
+			if (d.name == $scope.current.name){
+				curIndex = i
+			}
+		})
+		var l = $scope.root.directories.length
+		var dir = $scope.root.directories[(curIndex + l + direction) % l]
+		$scope.process(dir)
+		$location.search({
+			dir: dir.name
+		})
+		$scope.$apply()
+	}
 
 	keydownService.registerKeydown('pages.photography',27,function(){
 		$scope.close()
 	})
 	keydownService.registerKeydown('pages.photography',37,function(){
-		if (!$scope.isAlbum){
+		if ($scope.isAlbum){
+			$scope.move(-1)
+		} else {
 			$state.go('pages.code')
 		}
 	})
 	keydownService.registerKeydown('pages.photography',39,function(){
-		if (!$scope.isAlbum){
+		if ($scope.isAlbum){
+			$scope.move(1)
+		} else {
 			$state.go('pages.about')
 		}
 	})
