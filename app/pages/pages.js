@@ -51,7 +51,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 }])
 .controller('CodeCtrl',['$scope','GitHubService','$state','KeydownService',
 	function($scope,githubService,$state,keydownService){
-		
+
 	githubService.getRepos(function(data){
 		$scope.repos = data;
 		githubService.getOctos(data.length,function(urls){
@@ -138,7 +138,6 @@ angular.module('charlierproctor.pages', ['ui.router'])
 		var l = $scope.root.directories.length
 		var dir = $scope.root.directories[(curIndex + l + direction) % l]
 		$scope.go(dir)
-		$scope.$apply()
 	}
 
 	keydownService.registerKeydown('pages.photography',27,function(){
@@ -147,6 +146,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	keydownService.registerKeydown('pages.photography',37,function(){
 		if ($scope.isAlbum){
 			$scope.move(-1)
+			$scope.$apply()
 		} else {
 			$state.go('pages.code')
 		}
@@ -154,6 +154,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	keydownService.registerKeydown('pages.photography',39,function(){
 		if ($scope.isAlbum){
 			$scope.move(1)
+			$scope.$apply()
 		} else {
 			$state.go('pages.about')
 		}

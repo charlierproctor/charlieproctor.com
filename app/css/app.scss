@@ -257,6 +257,17 @@ $black: black;
   #about .container {
     vertical-align: middle;
   }
+  img.icon {
+    position: absolute;
+    z-index: 10;
+    margin: 5%;
+    opacity: 0.5;
+    cursor: pointer;
+    @include transition(opacity 0.3s linear);
+  }
+  img.icon:hover {
+    opacity: 0.8;
+  }
   #photography {
     h3 {
       text-align: center;
@@ -264,6 +275,17 @@ $black: black;
     }
     img {
       cursor: pointer;
+    }
+    img.icon {
+      width: 20px;
+      position: absolute;
+      top: 10px;
+    }
+    img.icon.previous {
+      left: 20%;
+    }
+    img.icon.next {
+      right: 10%;
     }
   }
   #zoom {
@@ -277,15 +299,7 @@ $black: black;
       width: 100%;
     }
     img.icon {
-      position: absolute;
-      z-index: 10;
       margin: 5%;
-      opacity: 0.5;
-      cursor: pointer;
-      @include transition(opacity 0.3s linear);
-    }
-    img.icon:hover {
-      opacity: 0.8;
     }
     img.icon.close {
       top: 0;
