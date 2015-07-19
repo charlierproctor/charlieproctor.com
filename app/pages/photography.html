@@ -1,10 +1,10 @@
 <div id="photography" class="page">
 	<h1>Photography</h1>
-	<div class="container half-width backdrop" ng-repeat="directory in directories" ng-click="open(directory)">
+	<div class="container half-width backdrop" ng-repeat="directory in directories" ng-click="open(directory.name)">
 		{{directory.info.title}}
 		<img class="photo" ng-src="{{directory.name}}/min/{{directory.info.cover}}">
 	</div>
 	<div class="container half-width backdrop" ng-repeat="photo in photos" ng-click="zoom(photo)">
-		<img class="photo" ng-src="img/photos/min/{{photo}}">
+		<img class="photo" ng-src="{{current.name}}/min/{{photo}}">
 	</div>
 </div>

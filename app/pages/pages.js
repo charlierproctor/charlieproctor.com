@@ -20,12 +20,12 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	    controller: 'CodeCtrl'
 	  })
 	  .state('pages.photography', {
-	  	url: '/photo',
+	  	url: '/photo?dir',
 	    templateUrl: 'pages/photography.html',
 	    controller: 'PhotographyCtrl'
 	  })
 	  .state('pages.zoom', {
-	  	url: '/photo/zoom?img',
+	  	url: '/photo/zoom?dir&img',
 	  	templateUrl: 'pages/photography.zoom.html',
 	  	reloadOnSearch: false,
 	  	controller: 'PhotographyZoomCtrl'
@@ -80,21 +80,50 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	})
 	
 }])
-.controller('PhotographyCtrl',['$scope','PhotoService','$state',function($scope,photoService,$state){
-	photoService.getFsList('/photos',function(hash){
-		$scope.directories = hash.directories
-		$scope.photos = hash.files.filter(function(elem){ elem[0] != '.' })
+.controller('PhotographyCtrl',['$scope','PhotoService','$state','$stateParams','$location',
+	function($scope,photoService,$state,$stateParams,$location){
+
+	function strEndsWith(str,suffix){
+	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+	}
+
+	photoService.getFsList($stateParams.dir || 'img/photos',function(hash){
+		$scope.process(hash)
 	})
+
+	$scope.process = function(dir){
+		$scope.current = dir
+		$scope.directories = dir.directories.filter(function(d){
+			return !strEndsWith(d.name,'min') && !strEndsWith(d.name,'full')
+		})
+		var min = dir.directories.filter(function(d){ 
+			return strEndsWith(d.name,'min')
+		})
+		if (min.length == 1) {
+			$scope.photos = min[0].files.filter(function(f){
+				return strEndsWith(f,'.jpg')
+			})
+		}
+	}
+
+	// open a subdirectory
+	$scope.open = function(dir){
+		$location.search({ dir: dir })
+		$scope.process($scope.current.directories.filter(function(d){ 
+			return d.name == dir 
+		})[0])
+	}
 
 	$scope.zoom = function(photo){
 		$state.go('pages.zoom',{
-			img:photo
+			img:photo,
+			dir:$scope.current.name
 		})
 	}
 }])
 .controller('PhotographyZoomCtrl',['$scope','$state','$stateParams','$location','PhotoService','KeydownService',
 	function($scope,$state,$stateParams,$location,photoService,keydownService){
-		$scope.photo = $stateParams.img
+		$scope.photo = $state.params.dir + '/full/' + $state.params.img
 		$scope.showData = false
 		$scope.close = function(){
 			$state.go('pages.photography');

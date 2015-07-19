@@ -3,7 +3,7 @@
 angular.module('charlierproctor.photos', [])
 .factory('PhotoService', ['$http',function($http){
 	var getFsList = function(imgDir,cb){
-		$http.get('/fs_list?dir=img'+imgDir)
+		$http.get('/fs_list?dir='+imgDir)
 		.success(function(data, status, headers, config) {
 			cb(data)
 		})
