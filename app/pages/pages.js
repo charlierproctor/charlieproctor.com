@@ -41,9 +41,6 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	keydownService.registerKeydown('pages.code',27,function(){
 		$state.go('splash')
 	})
-	keydownService.registerKeydown('pages.photography',27,function(){
-		$state.go('splash')
-	})
 
 	// arrow navigation between states
 	keydownService.registerKeydown('pages.about',37,function(){
@@ -80,8 +77,8 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	})
 	
 }])
-.controller('PhotographyCtrl',['$scope','PhotoService','$state','$location',
-	function($scope,photoService,$state,$location){
+.controller('PhotographyCtrl',['$scope','PhotoService','KeydownService','$state','$location',
+	function($scope,photoService,keydownService,$state,$location){
 
 	function strEndsWith(str,suffix){
 	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
@@ -123,6 +120,21 @@ angular.module('charlierproctor.pages', ['ui.router'])
 			img:photo
 		})
 	}
+
+	$scope.close = function(){
+		if ($scope.isAlbum){
+			$state.go('pages.photography',{
+				dir: ''
+			})
+		} else {
+			$state.go('splash')
+		}
+	}
+
+	keydownService.registerKeydown('pages.photography',27,function(){
+		$scope.close()
+	})
+
 }])
 .controller('PhotographyZoomCtrl',['$scope','$state','$location','PhotoService','KeydownService',
 	function($scope,$state,$location,photoService,keydownService){
