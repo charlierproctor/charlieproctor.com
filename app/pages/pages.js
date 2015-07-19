@@ -104,6 +104,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 				return strEndsWith(f,'.jpg')
 			})
 		}
+		$scope.isAlbum = ($scope.current.info != null)
 	}
 
 	// open a subdirectory
