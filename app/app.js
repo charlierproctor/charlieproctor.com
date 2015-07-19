@@ -24,3 +24,6 @@ run(['$rootScope','$location','$window',function($rootScope, $location, $window)
     $window.ga('send','pageview', { page:$location.path() })
   })
 }])
+.constant('PHOTOS',{
+  ROOT:'img/photos/'
+})

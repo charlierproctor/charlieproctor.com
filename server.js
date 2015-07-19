@@ -21,12 +21,12 @@ app.get('/fs_list', function(req, res){
 						hash.info = require('./' + dir + '/album.json')
 					}
 					(function(filename,success,error){
-						fs.stat(dir + '/' + filename, function(err,stats){
+						fs.stat(dir + filename, function(err,stats){
 							if (err){
 								error(err)
 							} else {
 								if (stats.isDirectory()){
-									walk(dir + '/' + filename,function(sub){
+									walk(dir + filename + '/',function(sub){
 										hash.directories.push(sub)
 										if (--wait === 0){ success(hash) }
 									})
