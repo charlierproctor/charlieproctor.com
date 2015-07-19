@@ -127,7 +127,9 @@ angular.module('charlierproctor.pages', ['ui.router'])
 		$scope.photo = $state.params.img
 		$scope.showData = false
 		$scope.close = function(){
-			$state.go('pages.photography');
+			$state.go('pages.photography',{
+				dir: $scope.dir
+			});
 		}
 		$scope.next = function(){
 			photoService.getNextPhoto($scope.dir + '/min', $scope.photo, function(next){
