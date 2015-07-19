@@ -79,36 +79,36 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
 	}
 
-	photoService.getFsList($state.params.dir || 'img/photos',function(hash){
-		$scope.process(hash)
-	})
-
 	photoService.getFsList('img/photos',function(hash){
 		$scope.root = hash
 	})
 
-	$scope.process = function(dir){
+	photoService.getFsList($state.params.dir || 'img/photos',function(hash){
+		$scope.go(hash)
+	})
+
+	$scope.go = function(dir){
 		$scope.current = dir
+		$scope.isAlbum = ($scope.current.info != null)
 		$scope.directories = dir.directories.filter(function(d){
 			return !strEndsWith(d.name,'min') && !strEndsWith(d.name,'full')
 		})
-		var min = dir.directories.filter(function(d){ 
-			return strEndsWith(d.name,'min')
-		})
-		if (min.length == 1) {
-			$scope.photos = min[0].files.filter(function(f){
+		if ($scope.isAlbum) {
+			$scope.photos = dir.directories.filter(function(d){ 
+				return strEndsWith(d.name,'min')
+			})[0].files.filter(function(f){
 				return strEndsWith(f,'.jpg')
 			})
+		} else {
+			$scope.photos = []
 		}
-		$scope.isAlbum = ($scope.current.info != null)
+		$location.search({ 
+			dir: dir.name 
+		})
 	}
 
-	// open a subdirectory
 	$scope.open = function(dir){
-		$location.search({ 
-			dir: dir 
-		})
-		$scope.process($scope.current.directories.filter(function(d){ 
+		$scope.go($scope.current.directories.filter(function(d){ 
 			return d.name == dir 
 		})[0])
 	}
@@ -122,9 +122,8 @@ angular.module('charlierproctor.pages', ['ui.router'])
 
 	$scope.close = function(){
 		if ($scope.isAlbum){
-			$state.go('pages.photography',{
-				dir: ''
-			})
+			$scope.go($scope.root)
+			$scope.$apply()
 		} else {
 			$state.go('splash')
 		}
@@ -138,10 +137,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 		})
 		var l = $scope.root.directories.length
 		var dir = $scope.root.directories[(curIndex + l + direction) % l]
-		$scope.process(dir)
-		$location.search({
-			dir: dir.name
-		})
+		$scope.go(dir)
 		$scope.$apply()
 	}
 
