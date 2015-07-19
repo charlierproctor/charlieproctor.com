@@ -10,7 +10,7 @@ app.use(express.static(__dirname + '/app'));
 app.get('/fs_list', function(req, res){
 
 	var walk = function(dir,success,error){
-		var hash = {"name":dir, "files":[], "directories":[]}
+		var hash = {"name":dir.substring('app/'.length), "files":[], "directories":[]}
 		fs.readdir(dir, function(err,files){
 			if (err){
 				error(err)
