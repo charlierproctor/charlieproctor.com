@@ -123,21 +123,28 @@ angular.module('charlierproctor.pages', ['ui.router'])
 }])
 .controller('PhotographyZoomCtrl',['$scope','$state','$stateParams','$location','PhotoService','KeydownService',
 	function($scope,$state,$stateParams,$location,photoService,keydownService){
-		$scope.photo = $state.params.dir + '/full/' + $state.params.img
+		$scope.dir = $state.params.dir
+		$scope.photo = $state.params.img
 		$scope.showData = false
 		$scope.close = function(){
 			$state.go('pages.photography');
 		}
 		$scope.next = function(){
-			photoService.getNextPhoto($scope.photo, function(next){
+			photoService.getNextPhoto($scope.dir + '/min', $scope.photo, function(next){
 				$scope.photo = next;
-				$location.search({img:next})
+				$location.search({
+					img:next,
+					dir: $scope.dir
+				})
 			})
 		}
 		$scope.previous = function(){
-			photoService.getPreviousPhoto($scope.photo, function(prev){
+			photoService.getPreviousPhoto($scope.dir + '/min', $scope.photo, function(prev){
 				$scope.photo = prev;
-				$location.search({img:prev})
+				$location.search({
+					img:prev,
+					dir: $scope.dir
+				})
 			})
 		}
 

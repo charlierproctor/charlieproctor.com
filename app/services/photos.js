@@ -8,14 +8,14 @@ angular.module('charlierproctor.photos', [])
 			cb(data)
 		})
 	}
-	var getNextPhoto = function(current,cb){
-		getFsList('/photos/min',function(photos){
-			cb(photos[(photos.indexOf(current) + 1)%photos.length])
+	var getNextPhoto = function(dir,ph,cb){
+		getFsList(dir,function(data){
+			cb(data.files[(data.files.indexOf(ph) + 1)%data.files.length])
 		})
 	}
-	var getPreviousPhoto = function(current,cb){
-		getFsList('/photos/min',function(photos){
-			cb(photos[(photos.indexOf(current) - 1 + photos.length)%photos.length])
+	var getPreviousPhoto = function(dir,ph,cb){
+		getFsList(dir,function(data){
+			cb(data.files[(data.files.indexOf(ph) - 1 + data.files.length)%data.files.length])
 		})
 	}
 	return {
