@@ -34,34 +34,24 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	}])
 
 .controller('PagesCtrl',['$scope','$state','$window','KeydownService',function($scope,$state,$window,keydownService){
-	
-	// escape to splash page
+
+}])
+.controller('AboutCtrl',['$scope','$state','KeydownService',function($scope,$state,keydownService){
+
 	keydownService.registerKeydown('pages.about',27,function(){
 		$state.go('splash')
 	})
-	keydownService.registerKeydown('pages.code',27,function(){
-		$state.go('splash')
-	})
-
-	// arrow navigation between states
 	keydownService.registerKeydown('pages.about',37,function(){
 		$state.go('pages.photography')
 	})
 	keydownService.registerKeydown('pages.about',39,function(){
 		$state.go('pages.code')
 	})
-	keydownService.registerKeydown('pages.code',37,function(){
-		$state.go('pages.about')
-	})
-	keydownService.registerKeydown('pages.code',39,function(){
-		$state.go('pages.photography')
-	})
 
 }])
-.controller('AboutCtrl',['$scope',function($scope){
-
-}])
-.controller('CodeCtrl',['$scope','GitHubService',function($scope,githubService){
+.controller('CodeCtrl',['$scope','GitHubService','$state','KeydownService',
+	function($scope,githubService,$state,keydownService){
+		
 	githubService.getRepos(function(data){
 		$scope.repos = data;
 		githubService.getOctos(data.length,function(urls){
@@ -69,6 +59,16 @@ angular.module('charlierproctor.pages', ['ui.router'])
 				$scope.repos[i].octo = "https://octodex.github.com" + urls[i]
 			};
 		})
+	})
+
+	keydownService.registerKeydown('pages.code',27,function(){
+		$state.go('splash')
+	})
+	keydownService.registerKeydown('pages.code',37,function(){
+		$state.go('pages.about')
+	})
+	keydownService.registerKeydown('pages.code',39,function(){
+		$state.go('pages.photography')
 	})
 	
 }])
