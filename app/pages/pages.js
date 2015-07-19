@@ -83,7 +83,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 		$scope.root = hash
 	})
 
-	photoService.getFsList($state.params.dir || 'img/photos',function(hash){
+	photoService.getFsList('img/photos' + ($state.params.dir ? '/' + $state.params.dir : ''),function(hash){
 		$scope.go(hash)
 	})
 
@@ -103,7 +103,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 			$scope.photos = []
 		}
 		$location.search({ 
-			dir: dir.name 
+			dir: dir.name.replace("img/photos/", "").replace("img/photos","") 
 		})
 	}
 
@@ -115,7 +115,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 
 	$scope.zoom = function(photo){
 		$state.go('pages.zoom',{
-			dir:$scope.current.name,
+			dir:$scope.current.name.replace("img/photos/", "").replace("img/photos","") ,
 			img:photo
 		})
 	}
@@ -172,7 +172,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 			});
 		}
 		$scope.next = function(){
-			photoService.getNextPhoto($scope.dir + '/min', $scope.photo, function(next){
+			photoService.getNextPhoto('img/photos/' + $scope.dir + '/min', $scope.photo, function(next){
 				$scope.photo = next;
 				$location.search({
 					dir: $scope.dir,
@@ -181,7 +181,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 			})
 		}
 		$scope.previous = function(){
-			photoService.getPreviousPhoto($scope.dir + '/min', $scope.photo, function(prev){
+			photoService.getPreviousPhoto('img/photos/' + $scope.dir + '/min', $scope.photo, function(prev){
 				$scope.photo = prev;
 				$location.search({
 					dir: $scope.dir,
