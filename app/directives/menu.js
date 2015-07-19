@@ -9,7 +9,7 @@ angular.module('charlierproctor.menu',[])
 			scope.info = function(subj){
 				if (subj == 'photography'){
 					$state.go('pages.' + subj, {
-						dir: ''
+						album: ''
 					}, { 
 						reload: true
 					})	

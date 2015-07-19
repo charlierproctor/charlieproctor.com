@@ -26,7 +26,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	    controller: 'PhotographyCtrl'
 	  })
 	  .state('pages.zoom', {
-	  	url: '/photo/zoom?dir&img',
+	  	url: '/photo/zoom?album&img',
 	  	templateUrl: 'pages/photography.zoom.html',
 	  	reloadOnSearch: false,
 	  	controller: 'PhotographyZoomCtrl'
@@ -83,7 +83,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 		$scope.root = hash
 	})
 
-	photoService.getFsList(PHOTOS.ROOT + ($state.params.dir || ''),function(hash){
+	photoService.getFsList(PHOTOS.ROOT + ($state.params.album || ''),function(hash){
 		$scope.go(hash)
 	})
 
@@ -103,7 +103,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 			$scope.photos = []
 		}
 		$location.search({ 
-			dir: dir.name.replace(PHOTOS.ROOT, "")
+			album: dir.name.replace(PHOTOS.ROOT, "")
 		})
 	}
 
@@ -115,7 +115,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 
 	$scope.zoom = function(photo){
 		$state.go('pages.zoom',{
-			dir:$scope.current.name.replace(PHOTOS.ROOT, ""),
+			album:$scope.current.name.replace(PHOTOS.ROOT, ""),
 			img:photo
 		})
 	}
@@ -163,19 +163,19 @@ angular.module('charlierproctor.pages', ['ui.router'])
 }])
 .controller('PhotographyZoomCtrl',['$scope','$state','$location','PhotoService','KeydownService','PHOTOS',
 	function($scope,$state,$location,photoService,keydownService,PHOTOS){
-		$scope.dir = $state.params.dir
+		$scope.dir = $state.params.album
 		$scope.photo = $state.params.img
 		$scope.showData = false
 		$scope.close = function(){
 			$state.go('pages.photography',{
-				dir: $scope.dir
+				album: $scope.dir
 			});
 		}
 		$scope.next = function(){
 			photoService.getNextPhoto(PHOTOS.ROOT + $scope.dir + 'min/', $scope.photo, function(next){
 				$scope.photo = next;
 				$location.search({
-					dir: $scope.dir,
+					album: $scope.dir,
 					img:next
 				})
 			})
@@ -184,7 +184,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 			photoService.getPreviousPhoto(PHOTOS.ROOT + $scope.dir + 'min/', $scope.photo, function(prev){
 				$scope.photo = prev;
 				$location.search({
-					dir: $scope.dir,
+					album: $scope.dir,
 					img:prev
 				})
 			})
