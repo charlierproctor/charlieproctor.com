@@ -80,14 +80,14 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	})
 	
 }])
-.controller('PhotographyCtrl',['$scope','PhotoService','$state','$stateParams','$location',
-	function($scope,photoService,$state,$stateParams,$location){
+.controller('PhotographyCtrl',['$scope','PhotoService','$state','$location',
+	function($scope,photoService,$state,$location){
 
 	function strEndsWith(str,suffix){
 	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
 	}
 
-	photoService.getFsList($stateParams.dir || 'img/photos',function(hash){
+	photoService.getFsList($state.params.dir || 'img/photos',function(hash){
 		$scope.process(hash)
 	})
 
@@ -123,8 +123,8 @@ angular.module('charlierproctor.pages', ['ui.router'])
 		})
 	}
 }])
-.controller('PhotographyZoomCtrl',['$scope','$state','$stateParams','$location','PhotoService','KeydownService',
-	function($scope,$state,$stateParams,$location,photoService,keydownService){
+.controller('PhotographyZoomCtrl',['$scope','$state','$location','PhotoService','KeydownService',
+	function($scope,$state,$location,photoService,keydownService){
 		$scope.dir = $state.params.dir
 		$scope.photo = $state.params.img
 		$scope.showData = false
