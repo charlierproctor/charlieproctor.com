@@ -7,7 +7,13 @@ angular.module('charlierproctor.menu',[])
 		restrict: 'E',
 		link: function(scope){
 			scope.info = function(subj){
-				$state.go('pages.' + subj)
+				if (subj == 'photography'){
+					$state.go('pages.' + subj, {
+						dir: ''
+					})	
+				} else {
+					$state.go('pages.' + subj)
+				}
 			}
 			scope.home = function(){
 				$state.go('splash')
