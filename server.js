@@ -9,27 +9,27 @@ app.use(express.static(__dirname + '/app'));
 // recursively list files + directories in a directory: /fs_list?dir=[directory]
 app.get('/fs_list', function(req, res){
 
-	var walk = function(dir,cb){
+	var walk = function(dir,success,error){
 		var hash = {"name":dir, "files":[], "directories":[]}
 		fs.readdir(dir, function(err,files){
 			if (err){
-				cb(err)
+				error(err)
 			} else {
 				var wait = files.length
 				for (var i = 0; i < files.length; i++) {
-					(function(filename,cb){
+					(function(filename,success){
 						fs.stat(dir + '/' + filename, function(err,stats){
 							if (stats.isDirectory()){
 								walk(dir + '/' + filename,function(sub){
 									hash.directories.push(sub)
-									if (--wait === 0){ cb(hash) }
+									if (--wait === 0){ success(hash) }
 								})
 							} else {
 								hash.files.push(filename)
-								if (--wait === 0){ cb(hash) }
+								if (--wait === 0){ success(hash) }
 							}
 						})
-					})(files[i],cb)
+					})(files[i],success)
 				};
 			}
 		})
@@ -37,6 +37,8 @@ app.get('/fs_list', function(req, res){
 
 	walk('app/' + req.query.dir, function(hash){
 		res.send(hash)
+	}, function(hash){
+		res.status(400).send(hash)
 	})
 })
 
