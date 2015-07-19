@@ -17,6 +17,9 @@ app.get('/fs_list', function(req, res){
 			} else {
 				var wait = files.length
 				for (var i = 0; i < files.length; i++) {
+					if (files[i] == 'album.json'){
+						hash.info = require('./' + dir + '/album.json')
+					}
 					(function(filename,success,error){
 						fs.stat(dir + '/' + filename, function(err,stats){
 							if (err){
