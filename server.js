@@ -12,22 +12,26 @@ app.get('/fs_list', function(req, res){
 	var walk = function(dir,cb){
 		var hash = {"name":dir, "files":[], "directories":[]}
 		fs.readdir(dir, function(err,files){
-			var wait = files.length
-			for (var i = 0; i < files.length; i++) {
-				(function(filename,cb){
-					fs.stat(dir + '/' + filename, function(err,stats){
-						if (stats.isDirectory()){
-							walk(dir + '/' + filename,function(sub){
-								hash.directories.push(sub)
+			if (err){
+				cb(err)
+			} else {
+				var wait = files.length
+				for (var i = 0; i < files.length; i++) {
+					(function(filename,cb){
+						fs.stat(dir + '/' + filename, function(err,stats){
+							if (stats.isDirectory()){
+								walk(dir + '/' + filename,function(sub){
+									hash.directories.push(sub)
+									if (--wait === 0){ cb(hash) }
+								})
+							} else {
+								hash.files.push(filename)
 								if (--wait === 0){ cb(hash) }
-							})
-						} else {
-							hash.files.push(filename)
-							if (--wait === 0){ cb(hash) }
-						}
-					})
-				})(files[i],cb)
-			};
+							}
+						})
+					})(files[i],cb)
+				};
+			}
 		})
 	}
 
