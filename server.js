@@ -30,8 +30,10 @@ app.get('/fs_list', function(req, res){
 										hash.directories.push(sub)
 										if (--wait === 0){ success(hash) }
 									})
-								} else {
+								} else if (filename[0] != '.') {
 									hash.files.push(filename)
+									if (--wait === 0){ success(hash) }
+								} else {
 									if (--wait === 0){ success(hash) }
 								}
 							}
