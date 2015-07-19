@@ -83,7 +83,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 .controller('PhotographyCtrl',['$scope','PhotoService','$state',function($scope,photoService,$state){
 	photoService.getFsList('/photos',function(hash){
 		$scope.directories = hash.directories
-		$scope.photos = hash.files
+		$scope.photos = hash.files.filter(function(elem){ elem[0] != '.' })
 	})
 
 	$scope.zoom = function(photo){
