@@ -17,19 +17,23 @@ app.get('/fs_list', function(req, res){
 			} else {
 				var wait = files.length
 				for (var i = 0; i < files.length; i++) {
-					(function(filename,success){
+					(function(filename,success,error){
 						fs.stat(dir + '/' + filename, function(err,stats){
-							if (stats.isDirectory()){
-								walk(dir + '/' + filename,function(sub){
-									hash.directories.push(sub)
-									if (--wait === 0){ success(hash) }
-								})
+							if (err){
+								error(err)
 							} else {
-								hash.files.push(filename)
-								if (--wait === 0){ success(hash) }
+								if (stats.isDirectory()){
+									walk(dir + '/' + filename,function(sub){
+										hash.directories.push(sub)
+										if (--wait === 0){ success(hash) }
+									})
+								} else {
+									hash.files.push(filename)
+									if (--wait === 0){ success(hash) }
+								}
 							}
 						})
-					})(files[i],success)
+					})(files[i],success,error)
 				};
 			}
 		})
