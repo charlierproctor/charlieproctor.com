@@ -108,7 +108,9 @@ angular.module('charlierproctor.pages', ['ui.router'])
 
 	// open a subdirectory
 	$scope.open = function(dir){
-		$location.search({ dir: dir })
+		$location.search({ 
+			dir: dir 
+		})
 		$scope.process($scope.current.directories.filter(function(d){ 
 			return d.name == dir 
 		})[0])
@@ -116,8 +118,8 @@ angular.module('charlierproctor.pages', ['ui.router'])
 
 	$scope.zoom = function(photo){
 		$state.go('pages.zoom',{
-			img:photo,
-			dir:$scope.current.name
+			dir:$scope.current.name,
+			img:photo
 		})
 	}
 }])
@@ -135,8 +137,8 @@ angular.module('charlierproctor.pages', ['ui.router'])
 			photoService.getNextPhoto($scope.dir + '/min', $scope.photo, function(next){
 				$scope.photo = next;
 				$location.search({
-					img:next,
-					dir: $scope.dir
+					dir: $scope.dir,
+					img:next
 				})
 			})
 		}
@@ -144,8 +146,8 @@ angular.module('charlierproctor.pages', ['ui.router'])
 			photoService.getPreviousPhoto($scope.dir + '/min', $scope.photo, function(prev){
 				$scope.photo = prev;
 				$location.search({
-					img:prev,
-					dir: $scope.dir
+					dir: $scope.dir,
+					img:prev
 				})
 			})
 		}
