@@ -1,6 +1,6 @@
 <div id="zoom" class="page">
 	<div class="container full-width backdrop">
-		<img exif="imagedata" ng-src="img/photos/{{dir}}/full/{{photo}}" ng-click="next()">
+		<img exif="imagedata" ng-src="img/photos/{{album}}/full/{{photo}}" ng-click="next()">
 		<div class="data" ng-show="showData">
 			<p>Model: {{imagedata.Model}}</p>
 			<p>Focal Length: {{ calc(imagedata.FocalLength) }}mm</p>
