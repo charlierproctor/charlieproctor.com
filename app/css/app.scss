@@ -257,8 +257,14 @@ $black: black;
   #about .container {
     vertical-align: middle;
   }
-  #photography img {
-    cursor: pointer;
+  #photography {
+    h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    img {
+      cursor: pointer;
+    }
   }
   #zoom {
     position: relative;

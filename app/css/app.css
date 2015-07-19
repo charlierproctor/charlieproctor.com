@@ -203,6 +203,9 @@ img.carousel.opaque {
     vertical-align: top; }
   #content #about .container {
     vertical-align: middle; }
+  #content #photography h3 {
+    text-align: center;
+    margin-bottom: 10px; }
   #content #photography img {
     cursor: pointer; }
   #content #zoom {
