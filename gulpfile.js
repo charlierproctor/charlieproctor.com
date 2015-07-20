@@ -7,6 +7,7 @@ var using = require('gulp-using')
 var sass = require('gulp-sass')
 var bowerFiles = require('main-bower-files')
 var angularFilesort = require('gulp-angular-filesort');
+var minifyHTML = require('gulp-minify-html')
 
 var paths = {
   html: [
@@ -29,6 +30,7 @@ var paths = {
 gulp.task('html', function() {
 	return gulp.src(paths.html)
 	.pipe(using())
+	.pipe(minifyHTML({empty:true}))
 	.pipe(gulp.dest('dist'))
 })
 gulp.task('sass', function() {
