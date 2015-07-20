@@ -12,6 +12,7 @@ var gulpif = require('gulp-if')
 var minimist = require('minimist');
 var del = require('del')
 var bower = require('gulp-bower');
+var shell = require('gulp-shell')
 
 var knownOptions = {
   string: 'env',
@@ -38,7 +39,7 @@ var paths = {
   ]
 };
 
-gulp.task('bower', function(){
+gulp.task('bower', function() {
   return bower()
 })
 gulp.task('clean', function(cb) {
@@ -46,6 +47,9 @@ gulp.task('clean', function(cb) {
     'dist/'
   ], cb)
 })
+gulp.task('octo', shell.task([
+    'node utils/octo.js'
+]))
 gulp.task('html', ['bower','clean'], function() {
 	return gulp.src(paths.html)
 	.pipe(gulpif(options.env === 'development', using()))
@@ -80,7 +84,7 @@ gulp.task('scripts', ['bower','clean'], function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('all', ['html','sass','img','vendor','scripts'])
+gulp.task('all', ['html','sass','img','vendor','scripts','octo'])
 gulp.task('default', ['all']);
 
 gulp.task('watch', ['all'], function() {
