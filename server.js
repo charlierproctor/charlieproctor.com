@@ -4,7 +4,10 @@ var bodyParser = require('body-parser');
 var fs = require('fs')
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/app'));
+app.use(express.static(__dirname + '/dist'));
+
+app.use('/data',express.static(__dirname + '/data'));
+app.use('/photos',express.static(__dirname + '/photos'));
 
 // recursively list files + directories in a directory: /fs_list?dir=[directory]
 app.get('/fs_list', function(req, res){
