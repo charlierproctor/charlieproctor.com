@@ -61,7 +61,7 @@ gulp.task('sass', ['bower','clean'], function() {
   .pipe(gulpif(options.env === 'development', using()))
 	.pipe(gulpif(options.env === 'production', sass({outputStyle: 'compressed'})))
   .pipe(gulpif(options.env === 'development', sass()))
-	.pipe(gulp.dest('dist/css'))
+	.pipe(gulp.dest('dist'))
 })
 gulp.task('img', ['bower','clean'], function() {
 	return gulp.src(paths.img)
