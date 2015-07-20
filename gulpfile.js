@@ -10,8 +10,8 @@ var angularFilesort = require('gulp-angular-filesort');
 
 var paths = {
   scripts: [
-  'app/**/*.js',
-  '!app/bower_components/**/*.js'
+  'src/**/*.js',
+  '!src/bower_components/**/*.js'
   ]
 };
 
