@@ -1,8 +1,8 @@
 <div id="photography" class="page">
 	<h1 ng-if="!isAlbum">Photography</h1>
-	<img ng-if="isAlbum" class="icon previous" ng-click="move(-1)" src="img/icons/previous.png">
+	<img ng-if="isAlbum" class="icon previous" ng-click="previousAlbum()" src="img/icons/previous.png">
 	<h1 ng-if="isAlbum">Album: {{ current.info.title }}</h1>
-	<img ng-if="isAlbum" class="icon next" ng-click="move(1)" src="img/icons/next.png">
+	<img ng-if="isAlbum" class="icon next" ng-click="nextAlbum()" src="img/icons/next.png">
 	<div class="container half-width backdrop" ng-repeat="directory in directories" ng-click="open(directory.name)">
 		<h3>{{directory.info.title}}</h3>
 		<img class="photo" ng-src="{{directory.name}}{{directory.info.cover}}">

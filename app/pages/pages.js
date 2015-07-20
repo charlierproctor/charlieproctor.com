@@ -118,16 +118,15 @@ angular.module('charlierproctor.pages', ['ui.router'])
 			$state.go('splash')
 		}
 	}
-	$scope.move = function(direction){
-		var curIndex;
-		$scope.root.directories.forEach(function(d,i){
-			if (d.name == $scope.current.name){
-				curIndex = i
-			}
+	$scope.previousAlbum = function(){
+		photoService.getAlbum($scope.root,$scope.current,-1,function(prev){
+			$scope.go(prev)
 		})
-		var l = $scope.root.directories.length
-		var dir = $scope.root.directories[(curIndex + l + direction) % l]
-		$scope.go(dir)
+	}
+	$scope.nextAlbum = function(){
+		photoService.getAlbum($scope.root,$scope.current,1,function(next){
+			$scope.go(next)
+		})
 	}
 
 	keydownService.registerKeydown('pages.photography',27,function(){
@@ -135,7 +134,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	})
 	keydownService.registerKeydown('pages.photography',37,function(){
 		if ($scope.isAlbum){
-			$scope.move(-1)
+			$scope.previousAlbum()
 			$scope.$apply()
 		} else {
 			$state.go('pages.code')
@@ -143,7 +142,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	})
 	keydownService.registerKeydown('pages.photography',39,function(){
 		if ($scope.isAlbum){
-			$scope.move(1)
+			$scope.nextAlbum()
 			$scope.$apply()
 		} else {
 			$state.go('pages.about')

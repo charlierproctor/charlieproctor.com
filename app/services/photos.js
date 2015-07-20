@@ -30,11 +30,23 @@ angular.module('charlierproctor.photos', [])
 			cb(photos[(photos.indexOf(ph) - 1 + photos.length)%photos.length])
 		})
 	}
+	// next / previous album
+	var getAlbum = function(root,current,direction,cb){
+		var curIndex;
+		root.directories.forEach(function(d,i){
+			if (d.name == current.name){
+				curIndex = i
+			}
+		})
+		var l = root.directories.length
+		cb(root.directories[(curIndex + l + direction) % l])
+	}
 	return {
 		getFsList: getFsList,
 		isPhoto: isPhoto,
 		isAlbum: isAlbum,
 		getNextPhoto: getNextPhoto,
-		getPreviousPhoto: getPreviousPhoto
+		getPreviousPhoto: getPreviousPhoto,
+		getAlbum: getAlbum
 	}
 }])
