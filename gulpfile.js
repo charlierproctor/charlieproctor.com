@@ -12,9 +12,18 @@ var paths = {
   scripts: [
   'src/**/*.js',
   '!src/bower_components/**/*.js'
+  ],
+  html: [
+  	'src/**/*.html',
+  	'!src/bower_components/**/*.html'
   ]
 };
 
+gulp.task('html', function() {
+	return gulp.src(paths.html)
+	.pipe(using())
+	.pipe(gulp.dest('dist'))
+})
 gulp.task('vendor', function() {
 	return gulp.src(bowerFiles())
 	.pipe(using())
@@ -35,4 +44,4 @@ gulp.task('watch', function() {
   gulp.watch(paths.scripts, ['scripts']);
 });
 
-gulp.task('default', ['vendor','scripts']);
+gulp.task('default', ['html','vendor','scripts']);
