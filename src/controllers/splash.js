@@ -6,7 +6,7 @@ angular.module('charlierproctor.splash', ['ui.router'])
 	function($stateProvider) {
 	  $stateProvider.state('splash', {
 	    url: '/',
-	    templateUrl: 'splash/splash.html',
+	    templateUrl: 'partials/splash.html',
 	    controller: 'SplashCtrl'
 	  })
 	}])

@@ -3,7 +3,7 @@
 angular.module('charlierproctor.menu',[])
 .directive('menu', ['$state',function($state){
 	return {
-		templateUrl: 'directives/menu.html',
+		templateUrl: 'partials/menu.html',
 		restrict: 'E',
 		link: function(scope){
 			scope.info = function(subj){

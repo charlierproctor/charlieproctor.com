@@ -6,28 +6,28 @@ angular.module('charlierproctor.pages', ['ui.router'])
 	function($stateProvider) {
 	  $stateProvider.state('pages', {
 	  	abstrast: true,
-	  	templateUrl: 'pages/pages.html',
+	  	templateUrl: 'partials/pages.html',
 	  	controller: 'PagesCtrl'
 	  })
 	  .state('pages.about', {
 	    url: '/about',
-	    templateUrl: 'pages/about.html',
+	    templateUrl: 'partials/about.html',
 	    controller: 'AboutCtrl'
 	  })
 	  .state('pages.code', {
 	  	url: '/code',
-	    templateUrl: 'pages/code.html',
+	    templateUrl: 'partials/code.html',
 	    controller: 'CodeCtrl'
 	  })
 	  .state('pages.photography', {
 	  	url: '/photo?album',
-	    templateUrl: 'pages/photography.html',
+	    templateUrl: 'partials/photography.html',
 	  	reloadOnSearch: false,
 	    controller: 'PhotographyCtrl'
 	  })
 	  .state('pages.zoom', {
 	  	url: '/photo/zoom?album&img',
-	  	templateUrl: 'pages/photography.zoom.html',
+	  	templateUrl: 'partials/photography.zoom.html',
 	  	reloadOnSearch: false,
 	  	controller: 'PhotographyZoomCtrl'
 	  })
