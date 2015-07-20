@@ -5,9 +5,9 @@
 	<img ng-if="isAlbum" class="icon next" ng-click="move(1)" src="img/icons/next.png">
 	<div class="container half-width backdrop" ng-repeat="directory in directories" ng-click="open(directory.name)">
 		<h3>{{directory.info.title}}</h3>
-		<img class="photo" ng-src="{{directory.name}}/min/{{directory.info.cover}}">
+		<img class="photo" ng-src="{{directory.name}}{{directory.info.cover}}">
 	</div>
 	<div class="container half-width backdrop" ng-repeat="photo in photos" ng-click="zoom(photo)">
-		<img class="photo" ng-src="{{current.name}}/min/{{photo}}">
+		<img class="photo" ng-src="{{current.name}}{{photo}}">
 	</div>
 </div>
