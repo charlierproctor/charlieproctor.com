@@ -11,6 +11,7 @@ var minifyHTML = require('gulp-minify-html')
 var gulpif = require('gulp-if')
 var minimist = require('minimist');
 var del = require('del')
+var bower = require('gulp-bower');
 
 var knownOptions = {
   string: 'env',
@@ -37,37 +38,40 @@ var paths = {
   ]
 };
 
+gulp.task('bower', function(){
+  return bower()
+})
 gulp.task('clean', function(cb) {
   del([
     'dist/'
   ], cb)
 })
-gulp.task('html', ['clean'], function() {
+gulp.task('html', ['bower','clean'], function() {
 	return gulp.src(paths.html)
 	.pipe(gulpif(options.env === 'development', using()))
 	.pipe(gulpif(options.env === 'production', minifyHTML({empty:true})))
 	.pipe(gulp.dest('dist'))
 })
-gulp.task('sass', ['clean'], function() {
+gulp.task('sass', ['bower','clean'], function() {
 	return gulp.src(paths.sass)
   .pipe(gulpif(options.env === 'development', using()))
 	.pipe(gulpif(options.env === 'production', sass({outputStyle: 'compressed'})))
   .pipe(gulpif(options.env === 'development', sass()))
 	.pipe(gulp.dest('dist/css'))
 })
-gulp.task('img', ['clean'], function() {
+gulp.task('img', ['bower','clean'], function() {
 	return gulp.src(paths.img)
   .pipe(gulpif(options.env === 'development', using()))
 	.pipe(gulp.dest('dist/img'))
 })
-gulp.task('vendor', ['clean'], function() {
+gulp.task('vendor', ['bower','clean'], function() {
 	return gulp.src(bowerFiles())
 	.pipe(gulpif(options.env === 'development', using()))
 	.pipe(concat('lib.js'))
 	.pipe(gulpif(options.env === 'production', uglify()))
 	.pipe(gulp.dest('dist'));
 })
-gulp.task('scripts', ['clean'], function() {
+gulp.task('scripts', ['bower','clean'], function() {
   return gulp.src(paths.scripts)
   	.pipe(angularFilesort())
   	.pipe(gulpif(options.env === 'development', using()))
@@ -79,7 +83,7 @@ gulp.task('scripts', ['clean'], function() {
 gulp.task('all', ['html','sass','img','vendor','scripts'])
 gulp.task('default', ['all']);
 
-gulp.task('watch', function() {
+gulp.task('watch', ['all'], function() {
   var all = paths.html.concat(paths.sass).concat(paths.img).concat(paths.scripts)
   gulp.watch(all, ['all']);
 });
