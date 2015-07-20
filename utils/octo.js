@@ -12,5 +12,5 @@ request('http://octodex.github.com', function (error, response, body) {
 		cats.push(link)
 	};
 	
-	fs.writeFile('app/data/cats.json',JSON.stringify({"cats":cats}))
+	fs.writeFile('data/cats.json',JSON.stringify({"cats":cats}))
 })

@@ -8,7 +8,9 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "app/bower_components"
+    "src/bower_components",
+    "dist/",
+    ".sass-cache/"
   ],
   "dependencies": {
     "angular": "~1.4.2",

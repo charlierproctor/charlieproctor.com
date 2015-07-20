@@ -13,7 +13,7 @@ app.use('/photos',express.static(__dirname + '/photos'));
 app.get('/fs_list', function(req, res){
 
 	var walk = function(dir,success,error){
-		var hash = {"name":dir.substring('app/'.length), "files":[], "directories":[]}
+		var hash = {"name":dir, "files":[], "directories":[]}
 		fs.readdir(dir, function(err,files){
 			if (err){
 				error(err)
@@ -47,7 +47,7 @@ app.get('/fs_list', function(req, res){
 		})
 	}
 
-	walk('app/' + req.query.dir, function(hash){
+	walk(req.query.dir, function(hash){
 		res.send(hash)
 	}, function(hash){
 		res.status(400).send(hash)
@@ -55,7 +55,7 @@ app.get('/fs_list', function(req, res){
 })
 
 app.get('*', function(req, res){
-	res.sendFile(__dirname + '/app/index.html');
+	res.sendFile(__dirname + '/dist/index.html');
 })
 
 var port = process.env.PORT || 3000;
