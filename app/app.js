@@ -26,5 +26,5 @@ run(['$rootScope','$location','$window',function($rootScope, $location, $window)
 }])
 .constant('PHOTOS',{
   MIN_PATH:'img/photos/',
-  FULL_PATH:'//s3.amazonaws.com/charlieproctor.com/photos/'
+  FULL_PATH:'//s3.amazonaws.com/charlierproctor/photos/'
 })
