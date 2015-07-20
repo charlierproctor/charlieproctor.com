@@ -75,11 +75,11 @@ angular.module('charlierproctor.pages', ['ui.router'])
 .controller('PhotographyCtrl',['$scope','PhotoService','KeydownService','$state','$location','PHOTOS',
 	function($scope,photoService,keydownService,$state,$location,PHOTOS){
 
-	photoService.getFsList(PHOTOS.ROOT,function(hash){
+	photoService.getFsList(PHOTOS.MIN_PATH,function(hash){
 		$scope.root = hash
 	})
 
-	photoService.getFsList(PHOTOS.ROOT + ($state.params.album ? $state.params.album + '/' : ''),function(hash){
+	photoService.getFsList(PHOTOS.MIN_PATH + ($state.params.album ? $state.params.album + '/' : ''),function(hash){
 		$scope.go(hash)
 	})
 
@@ -93,7 +93,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 			$scope.photos = []
 		}
 		$location.search({ 
-			album: $scope.current.name.replace(PHOTOS.ROOT, "").slice(0,-1)
+			album: $scope.current.name.replace(PHOTOS.MIN_PATH, "").slice(0,-1)
 		})
 	}
 
@@ -105,7 +105,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 
 	$scope.zoom = function(photo){
 		$state.go('pages.zoom',{
-			album:$scope.current.name.replace(PHOTOS.ROOT, "").slice(0,-1),
+			album:$scope.current.name.replace(PHOTOS.MIN_PATH, "").slice(0,-1),
 			img:photo
 		})
 	}
@@ -155,6 +155,7 @@ angular.module('charlierproctor.pages', ['ui.router'])
 		$scope.album = $state.params.album
 		$scope.photo = $state.params.img
 		$scope.showData = false
+		$scope.fullPath = PHOTOS.FULL_PATH
 		$scope.close = function(){
 			$state.go('pages.photography',{
 				album: $scope.album
@@ -168,12 +169,12 @@ angular.module('charlierproctor.pages', ['ui.router'])
 			})
 		}
 		$scope.next = function(){
-			photoService.getNextPhoto(PHOTOS.ROOT + $scope.album + '/', $scope.photo, function(next){
+			photoService.getNextPhoto(PHOTOS.MIN_PATH + $scope.album + '/', $scope.photo, function(next){
 				$scope.go(next)
 			})
 		}
 		$scope.previous = function(){
-			photoService.getPreviousPhoto(PHOTOS.ROOT + $scope.album + '/', $scope.photo, function(prev){
+			photoService.getPreviousPhoto(PHOTOS.MIN_PATH + $scope.album + '/', $scope.photo, function(prev){
 				$scope.go(prev)
 			})
 		}
