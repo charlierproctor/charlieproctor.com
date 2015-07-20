@@ -2,7 +2,9 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var fs = require('fs')
+var compress = require('compression')
 
+app.use(compress());
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/dist'));
 
