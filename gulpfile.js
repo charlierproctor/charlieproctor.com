@@ -10,6 +10,7 @@ var angularFilesort = require('gulp-angular-filesort');
 var minifyHTML = require('gulp-minify-html')
 var gulpif = require('gulp-if')
 var minimist = require('minimist');
+var del = require('del')
 
 var knownOptions = {
   string: 'env',
@@ -36,32 +37,37 @@ var paths = {
   ]
 };
 
-gulp.task('html', function() {
+gulp.task('clean', function(cb) {
+  del([
+    'dist/'
+  ], cb)
+})
+gulp.task('html', ['clean'], function() {
 	return gulp.src(paths.html)
 	.pipe(gulpif(options.env === 'development', using()))
 	.pipe(gulpif(options.env === 'production', minifyHTML({empty:true})))
 	.pipe(gulp.dest('dist'))
 })
-gulp.task('sass', function() {
+gulp.task('sass', ['clean'], function() {
 	return gulp.src(paths.sass)
   .pipe(gulpif(options.env === 'development', using()))
 	.pipe(gulpif(options.env === 'production', sass({outputStyle: 'compressed'})))
   .pipe(gulpif(options.env === 'development', sass()))
 	.pipe(gulp.dest('dist/css'))
 })
-gulp.task('img', function() {
+gulp.task('img', ['clean'], function() {
 	return gulp.src(paths.img)
   .pipe(gulpif(options.env === 'development', using()))
 	.pipe(gulp.dest('dist/img'))
 })
-gulp.task('vendor', function() {
+gulp.task('vendor', ['clean'], function() {
 	return gulp.src(bowerFiles())
 	.pipe(gulpif(options.env === 'development', using()))
 	.pipe(concat('lib.js'))
 	.pipe(gulpif(options.env === 'production', uglify()))
 	.pipe(gulp.dest('dist'));
 })
-gulp.task('scripts', function() {
+gulp.task('scripts', ['clean'], function() {
   return gulp.src(paths.scripts)
   	.pipe(angularFilesort())
   	.pipe(gulpif(options.env === 'development', using()))
@@ -70,11 +76,10 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', function() {
-	gulp.watch(paths.html, ['html']);
-	gulp.watch(paths.sass, ['sass']);
-	gulp.watch(paths.img, ['img']);
-  gulp.watch(paths.scripts, ['scripts']);
-});
+gulp.task('all', ['html','sass','img','vendor','scripts'])
+gulp.task('default', ['all']);
 
-gulp.task('default', ['html','sass','img','vendor','scripts']);
+gulp.task('watch', function() {
+  var all = paths.html.concat(paths.sass).concat(paths.img).concat(paths.scripts)
+  gulp.watch(all, ['all']);
+});
