@@ -160,22 +160,21 @@ angular.module('charlierproctor.pages', ['ui.router'])
 				album: $scope.album
 			});
 		}
+		$scope.go = function(next){
+			$scope.photo = next;
+			$location.search({
+				album: $scope.album,
+				img:next
+			})
+		}
 		$scope.next = function(){
 			photoService.getNextPhoto(PHOTOS.ROOT + $scope.album + '/', $scope.photo, function(next){
-				$scope.photo = next;
-				$location.search({
-					album: $scope.album,
-					img:next
-				})
+				$scope.go(next)
 			})
 		}
 		$scope.previous = function(){
 			photoService.getPreviousPhoto(PHOTOS.ROOT + $scope.album + '/', $scope.photo, function(prev){
-				$scope.photo = prev;
-				$location.search({
-					album: $scope.album,
-					img:prev
-				})
+				$scope.go(prev)
 			})
 		}
 
