@@ -2,7 +2,6 @@ var gulp = require('gulp');
 
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
 var using = require('gulp-using')
 var sass = require('gulp-sass')
 var bowerFiles = require('main-bower-files')
