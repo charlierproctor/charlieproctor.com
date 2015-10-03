@@ -97,6 +97,10 @@ $black: black;
       hr {
         margin: 0;
       }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
       li {
         padding: 10px 10px 10px 10px;
         @include transition(background-color 0.3s linear)
