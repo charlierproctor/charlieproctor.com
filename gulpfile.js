@@ -35,6 +35,9 @@ var paths = {
   scripts: [
   'src/**/*.js',
   '!src/bower_components/**/*.js'
+  ],
+  static: [
+  'src/**/*.pdf'
   ]
 };
 
@@ -81,12 +84,17 @@ gulp.task('scripts', ['bower','clean'], function() {
   	.pipe(concat('app.js'))
     .pipe(gulpif(options.env === 'production', uglify()))
     .pipe(gulp.dest('dist'));
-});
+})
+gulp.task('static', ['bower','clean'], function() {
+  return gulp.src(paths.static)
+  .pipe(gulpif(options.env === 'development', using()))
+  .pipe(gulp.dest('dist'))
+})
 
-gulp.task('all', ['html','sass','img','vendor','scripts','octo'])
+gulp.task('all', ['html','sass','img','vendor','scripts','static','octo'])
 gulp.task('default', ['all']);
 
 gulp.task('watch', ['all'], function() {
-  var all = paths.html.concat(paths.sass).concat(paths.img).concat(paths.scripts)
+  var all = paths.html.concat(paths.sass).concat(paths.img).concat(paths.scripts).concat(paths.static)
   gulp.watch(all, ['all']);
 });
