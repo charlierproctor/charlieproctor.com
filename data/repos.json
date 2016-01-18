@@ -12,6 +12,10 @@
 		"charlierproctor/tbgit",
 		"charlierproctor/boola",
 		"charlierproctor/salvaviajes",
-		"charlierproctor/section50"
+		"charlierproctor/section50",
+		"charlierproctor/bloom_filter",
+		"charlierproctor/kpcb",
+		"charlierproctor/tinderx",
+		"charlierproctor/graphs"
 	]
 }
