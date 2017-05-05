@@ -6,10 +6,7 @@ angular.module('charlierproctor', [
   'charlierproctor.splash',
   'charlierproctor.pages',
   'charlierproctor.menu',
-  'charlierproctor.github',
-  'charlierproctor.photos',
-  'charlierproctor.keydown',
-  'charlierproctor.exif'
+  'charlierproctor.github'
 ]).
 config(['$stateProvider','$urlRouterProvider',
 	function($stateProvider,$urlRouterProvider) {
@@ -24,7 +21,3 @@ run(['$rootScope','$location','$window',function($rootScope, $location, $window)
     $window.ga('send','pageview', { page:$location.path() })
   })
 }])
-.constant('PHOTOS',{
-  MIN_PATH:'photos/',
-  FULL_PATH:'https://s3.amazonaws.com/charlierproctor/photos/'
-})

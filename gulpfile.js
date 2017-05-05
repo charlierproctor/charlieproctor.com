@@ -12,6 +12,7 @@ var minimist = require('minimist');
 var del = require('del')
 var bower = require('gulp-bower');
 var shell = require('gulp-shell')
+var connect = require("gulp-connect");
 
 var knownOptions = {
   string: 'env',
@@ -22,22 +23,25 @@ var options = minimist(process.argv.slice(2), knownOptions);
 
 var paths = {
   html: [
-  	'src/**/*.html',
-  	'!src/bower_components/**/*.html'
+      'src/**/*.html',
+      '!src/bower_components/**/*.html'
   ],
   sass: [
-  	'src/css/*.scss'
+      'src/css/*.scss'
   ],
   img: [
-  	'src/img/**/*',
-  	'!src/img/raw/**/*'
+      'src/img/**/*',
+      '!src/img/raw/**/*'
   ],
   scripts: [
-  'src/**/*.js',
-  '!src/bower_components/**/*.js'
+      'src/**/*.js',
+      '!src/bower_components/**/*.js'
   ],
   static: [
-  'src/**/*.pdf'
+      'src/**/*.pdf'
+  ],
+  json: [
+      'data/**/*.json',
   ]
 };
 
@@ -90,11 +94,21 @@ gulp.task('static', ['bower','clean'], function() {
   .pipe(gulpif(options.env === 'development', using()))
   .pipe(gulp.dest('dist'))
 })
+gulp.task('json', ['bower','clean'], function() {
+  return gulp.src(paths.json)
+  .pipe(gulpif(options.env === 'development', using()))
+  .pipe(gulp.dest('dist/data'))
+})
+gulp.task('serve', function() {
+    connect.server({
+        root: 'dist'
+    });
+});
 
-gulp.task('all', ['html','sass','img','vendor','scripts','static','octo'])
+gulp.task('all', ['html','sass','img','vendor','scripts','static','octo', 'json'])
 gulp.task('default', ['all']);
 
 gulp.task('watch', ['all'], function() {
-  var all = paths.html.concat(paths.sass).concat(paths.img).concat(paths.scripts).concat(paths.static)
+  var all = paths.html.concat(paths.sass).concat(paths.img).concat(paths.scripts).concat(paths.static).concat(paths.json)
   gulp.watch(all, ['all']);
 });
